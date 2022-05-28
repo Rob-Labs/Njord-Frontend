@@ -69,8 +69,7 @@ const German = {
         holder: 'Halter, steht für die Gesamtzahl der Otter (sNJORD-Inhaber)',
         staked: 'NJORD Staked, ist das Verhältnis von sNJORD zu NJORD (Staked vs. Unstaked)',
         apy: 'Die jährliche prozentuale Rendite ist die normalisierte Darstellung eines Zinssatzes basierend auf einer Zinsperiode über ein Jahr. Beachten Sie, dass die bereitgestellten APYs eher Standardindikatoren als sehr genaue zukünftige Ergebnisse sind.',
-        runway:
-          'Runway, ist die Anzahl der Tage, an denen sNJORD-Emissionen mit einer bestimmten Rate aufrechterhalten werden können. Niedrigerer APY = längere Runway',
+        runway: 'Runway, ist die Anzahl der Tage, an denen sNJORD-Emissionen mit einer bestimmten Rate aufrechterhalten werden können. Niedrigerer APY = längere Runway',
         currentIndex:
           'Der aktuelle Index spiegelt die Menge an sNJORD wider, die seit Beginn des Staking angesammelt wurde. Im Wesentlichen wie viel sNJORD Sie hätten, wenn Sie ab Tag 1 eine einzelne NJORD staken und halten würden.',
       },
@@ -104,15 +103,13 @@ const German = {
       fullyVested: 'Vollständig gebunden',
       fullyVestedAt: 'Vollständig gebunden für',
       advancedSettings: {
-        txrevert:
-          'Die Transaktion kann rückgängig gemacht werden, wenn sich der Preis um mehr als die Slippage % ändert',
+        txrevert: 'Die Transaktion kann rückgängig gemacht werden, wenn sich der Preis um mehr als die Slippage % ändert',
         recipientAddress: 'Wählen Sie die Empfängeradresse. Standardmäßig ist dies Ihre aktuell verbundene Adresse',
       },
       purchase: {
         noValue: 'Bitte einen Wert eingeben!',
         invalidValue: 'Bitte geben Sie einen gültigen Wert ein!',
-        resetVestingAutostake:
-          'Sie haben eine bestehende Bond. Der Bond setzt Ihre Sperrfrist zurück. Möchten Sie dennoch fortführen?',
+        resetVestingAutostake: 'Sie haben eine bestehende Bond. Der Bond setzt Ihre Sperrfrist zurück. Möchten Sie dennoch fortführen?',
         resetVesting:
           'Sie haben einen bestehenden Bond. Die Anleihe setzt Ihre Ausübungsfrist zurück und die Prämien verfallen. Wir empfehlen, zuerst Belohnungen einzufordern oder eine neue Wallet zu verwenden. Möchten Sie trotzdem weitermachen?',
 
@@ -129,8 +126,7 @@ const German = {
         bondSuccessful: 'Dein Bond war erfolgreich!',
       },
       redeem: {
-        fullyVestedPopup:
-          'Sie können eine (4,4)-Bond erst beanspruchen, nachdem diese vervollständigt wurde (5 Tage Wartezeit).',
+        fullyVestedPopup: 'Sie können eine (4,4)-Bond erst beanspruchen, nachdem diese vervollständigt wurde (5 Tage Wartezeit).',
         claimAndAutostake: 'Beanspruchen und Autostake',
         pendingRewards: 'Ausstehende Belohnungen',
         claimableRewards: 'Einlösbare Belohnungen',
@@ -154,12 +150,10 @@ const German = {
         howModoFinanceWorks: 'So funktioniert ModoFinance',
         treasuryRevenue: 'Einnahmen vom Treasury',
         bondsLPFees: 'Bonds & LP Gebühren',
-        bondSales:
-          'Bondverkäufe und LP-Gebühren erhöhen den Treasury-Ertrag von Otter, binden Liquidität und helfen, das NJORD-Angebot zu kontrollieren',
+        bondSales: 'Bondverkäufe und LP-Gebühren erhöhen den Treasury-Ertrag von Otter, binden Liquidität und helfen, das NJORD-Angebot zu kontrollieren',
         treasuryGrowth: 'Treasury Wachstum',
         otterTreasury: 'Tresor der Otter',
-        treasuryInflow:
-          'Der Zufluss von Treasury wird verwendet, um das Treasury von Otter zu erhöhen und ausstehende NJORD-Token zu decken und das Staking von APY zu regulieren',
+        treasuryInflow: 'Der Zufluss von Treasury wird verwendet, um das Treasury von Otter zu erhöhen und ausstehende NJORD-Token zu decken und das Staking von APY zu regulieren',
         stakingRewards: 'Staking Prämien',
         clamToken: 'NJORD Token',
         compounds: 'Compounds Renditen automatisch durch einen Treasury-Backed Memecoin mit intrinsischem Wert',
@@ -213,13 +207,10 @@ const German = {
     nft: {
       which: 'Welches ',
       willYouGet: ' wirst du bekommen?',
-      safehandDescription:
-        'Wird jedem Otter verliehen, der mindestens 2 Wochen mit mehr als 4 sNJORD am Drop-Datum gestaked hat.',
-      furryhandDescription:
-        'Verliehen an jeden Otter, der mindestens 2 Wochen mit mehr als 40 sNJORD am Drop-Datum gestaked hat',
+      safehandDescription: 'Wird jedem Otter verliehen, der mindestens 2 Wochen mit mehr als 4 sNJORD am Drop-Datum gestaked hat.',
+      furryhandDescription: 'Verliehen an jeden Otter, der mindestens 2 Wochen mit mehr als 40 sNJORD am Drop-Datum gestaked hat',
       stonehandDescription: 'Verliehen an Wallets mit über 56 sNJORD, die vom 09.11. bis zum Drop-Datum gestaked haben.',
-      diamondhandDescription:
-        'Verliehen für das Staken der vollen NJORD-Menge vom IDO oder dem Startdatum (11.03., mit einem Minimum von 20 sNJORD) bis zum Drop-Datum',
+      diamondhandDescription: 'Verliehen für das Staken der vollen NJORD-Menge vom IDO oder dem Startdatum (11.03., mit einem Minimum von 20 sNJORD) bis zum Drop-Datum',
       giveawayParty: 'Geschenkeparty',
       giveawayPartyHeld: 'Geschenkeparty ist am',
     },
