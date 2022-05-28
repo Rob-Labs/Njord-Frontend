@@ -56,7 +56,13 @@ export const changeApproval = createAsyncThunk(
       const text = 'Approve ' + (token === 'NJORD' ? 'Staking' : 'Unstaking');
       const pendingTxnType = token === 'NJORD' ? 'approve_staking' : 'approve_unstaking';
 
-      dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: approveTx.hash,
+          text,
+          type: pendingTxnType,
+        }),
+      );
       allowance = +(await approvedPromise);
     } catch (error: any) {
       alert(error.message);
@@ -117,7 +123,13 @@ export const changeStake = createAsyncThunk(
         stakeTx = await staking.unstake(ethers.utils.parseUnits(value, 'gwei'), true);
       }
       const pendingTxnType = action === 'stake' ? 'staking' : 'unstaking';
-      dispatch(fetchPendingTxns({ txnHash: stakeTx.hash, text: getStakingTypeText(action), type: pendingTxnType }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: stakeTx.hash,
+          text: getStakingTypeText(action),
+          type: pendingTxnType,
+        }),
+      );
       await stakeTx.wait();
     } catch (error: any) {
       if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
@@ -158,7 +170,13 @@ export const claimWarmup = createAsyncThunk(
     let tx;
     try {
       tx = await staking.claim(address);
-      dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'CLAIMING', type: 'claimWarmup' }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: tx.hash,
+          text: 'CLAIMING',
+          type: 'claimWarmup',
+        }),
+      );
       await tx.wait();
     } catch (error: any) {
       if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {

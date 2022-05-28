@@ -11,10 +11,26 @@ var H = (t, e) => {
   },
   J = (t, e, n) => {
     if ((e && typeof e == 'object') || typeof e == 'function')
-      for (let r of N(e)) !V.call(t, r) && r !== 'default' && x(t, r, { get: () => e[r], enumerable: !(n = j(e, r)) || n.enumerable });
+      for (let r of N(e))
+        !V.call(t, r) &&
+          r !== 'default' &&
+          x(t, r, {
+            get: () => e[r],
+            enumerable: !(n = j(e, r)) || n.enumerable,
+          });
     return t;
   },
-  T = t => J(F(x(t != null ? U(O(t)) : {}, 'default', t && t.__esModule && 'default' in t ? { get: () => t.default, enumerable: !0 } : { value: t, enumerable: !0 })), t);
+  T = t =>
+    J(
+      F(
+        x(
+          t != null ? U(O(t)) : {},
+          'default',
+          t && t.__esModule && 'default' in t ? { get: () => t.default, enumerable: !0 } : { value: t, enumerable: !0 },
+        ),
+      ),
+      t,
+    );
 H(exports, { CountdownCircleTimer: () => G, useCountdown: () => S });
 var A = T(require('react'));
 var L = T(require('react'));
@@ -73,7 +89,10 @@ var q = (t, e, n) => {
       s = 2 * o,
       m = n === 'clockwise' ? '1,0' : '0,1',
       l = 2 * Math.PI * o;
-    return { path: `m ${r},${u} a ${o},${o} 0 ${m} 0,${s} a ${o},${o} 0 ${m} 0,-${s}`, pathLength: l };
+    return {
+      path: `m ${r},${u} a ${o},${o} 0 ${m} 0,${s} a ${o},${o} 0 ${m} 0,-${s}`,
+      pathLength: l,
+    };
   },
   k = (t, e) => (t === 0 || t === e ? 0 : typeof e == 'number' ? t - e : 0),
   B = t => ({ position: 'relative' }),
@@ -146,11 +165,35 @@ var M = (t, e, n, r) => {
             : void 0,
       }),
       b = e - h;
-    return { elapsedTime: h, path: w, pathLength: C, remainingTime: Math.ceil(b), rotation: l, size: u, stroke: K(t, b), strokeDashoffset: M(h, 0, C, e), strokeWidth: o };
+    return {
+      elapsedTime: h,
+      path: w,
+      pathLength: C,
+      remainingTime: Math.ceil(b),
+      rotation: l,
+      size: u,
+      stroke: K(t, b),
+      strokeDashoffset: M(h, 0, C, e),
+      strokeWidth: o,
+    };
   };
 var G = t => {
   let { children: e, strokeLinecap: n, trailColor: r, trailStrokeWidth: u } = t,
-    { path: o, pathLength: s, stroke: m, strokeDashoffset: l, remainingTime: p, elapsedTime: f, size: i, strokeWidth: c } = S(t);
-  return A.default.createElement('div', { style: B(i) }, typeof e == 'function' && A.default.createElement('div', { style: I }, e({ remainingTime: p, elapsedTime: f, color: m })));
+    {
+      path: o,
+      pathLength: s,
+      stroke: m,
+      strokeDashoffset: l,
+      remainingTime: p,
+      elapsedTime: f,
+      size: i,
+      strokeWidth: c,
+    } = S(t);
+  return A.default.createElement(
+    'div',
+    { style: B(i) },
+    typeof e == 'function' &&
+      A.default.createElement('div', { style: I }, e({ remainingTime: p, elapsedTime: f, color: m })),
+  );
 };
 G.displayName = 'CountdownCircleTimer';

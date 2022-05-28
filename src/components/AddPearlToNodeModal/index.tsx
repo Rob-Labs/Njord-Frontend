@@ -1,4 +1,15 @@
-import { Divider, FormControl, InputAdornment, InputLabel, makeStyles, OutlinedInput, Paper, SvgIcon, Typography, useTheme } from '@material-ui/core';
+import {
+  Divider,
+  FormControl,
+  InputAdornment,
+  InputLabel,
+  makeStyles,
+  OutlinedInput,
+  Paper,
+  SvgIcon,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
 import addDays from 'date-fns/addDays';
 import formatDate from 'date-fns/format';
 import { useCallback, useEffect, useState } from 'react';
@@ -8,14 +19,22 @@ import Modal from 'src/components/Modal';
 import { trim } from 'src/helpers';
 import getNoteImage from 'src/helpers/get-note-image';
 import { useSelector } from 'src/store/hook';
-import { extendLock as extendLockAction, ILockNote, ITerm, lock as lockAction } from 'src/store/slices/otter-lake-slice';
+import {
+  extendLock as extendLockAction,
+  ILockNote,
+  ITerm,
+  lock as lockAction,
+} from 'src/store/slices/otter-lake-slice';
 import { ReactComponent as NoteIcon } from '../../assets/icons/note.svg';
 import { ReactComponent as RocketIcon } from '../../assets/icons/rocket.svg';
 import { useWeb3Context } from '../../hooks';
 import ActionButton from '../Button/ActionButton';
 import './styles.scss';
 
-const percentageFormatter = Intl.NumberFormat('en', { style: 'percent', minimumFractionDigits: 2 });
+const percentageFormatter = Intl.NumberFormat('en', {
+  style: 'percent',
+  minimumFractionDigits: 2,
+});
 
 const useStyles = makeStyles(theme => ({
   input: {
@@ -44,7 +63,14 @@ export interface AddPearlToNoteModalProps {
   onSuccess: (result: any) => void;
 }
 
-export default function AddPearlToNoteModal({ open = false, lockNote, term, discount, onClose, onSuccess }: AddPearlToNoteModalProps) {
+export default function AddPearlToNoteModal({
+  open = false,
+  lockNote,
+  term,
+  discount,
+  onClose,
+  onSuccess,
+}: AddPearlToNoteModalProps) {
   const { t } = useTranslation();
   const theme = useTheme();
   const styles = useStyles();
@@ -80,8 +106,12 @@ export default function AddPearlToNoteModal({ open = false, lockNote, term, disc
           </Typography>
           <Typography className="add-pearl-modal__summary-title">{term?.note.name}</Typography>
           <div className="add-pearl-modal__summary-period-wrapper">
-            <Typography className="add-pearl-modal__summary-period">{term?.lockPeriod} Days Locked-up Period</Typography>
-            <Typography variant="caption">Due date: {formatDate(addDays(new Date(), Number(term?.lockPeriod ?? 1)), 'MMM dd, yyyy')}</Typography>
+            <Typography className="add-pearl-modal__summary-period">
+              {term?.lockPeriod} Days Locked-up Period
+            </Typography>
+            <Typography variant="caption">
+              Due date: {formatDate(addDays(new Date(), Number(term?.lockPeriod ?? 1)), 'MMM dd, yyyy')}
+            </Typography>
           </div>
           <Divider className="add-pearl-modal__summary-div" />
           <Typography variant="caption" className="add-pearl-modal__reward-label">
@@ -134,14 +164,16 @@ export default function AddPearlToNoteModal({ open = false, lockNote, term, disc
           </div>
 
           <Typography variant="caption" className="add-pearl-modal__approve-caption">
-            Note: Your first interaction with FJORD Chests includes an “Approve” transaction followed by a lock up transaction. Subsequent lockups will only require the “Lock Up”
-            transaction.
+            Note: Your first interaction with FJORD Chests includes an “Approve” transaction followed by a lock up
+            transaction. Subsequent lockups will only require the “Lock Up” transaction.
           </Typography>
 
           <div className="add-pearl-modal__account-details">
             <div className="add-pearl-modal__account-detail">
               <Typography className="add-pearl-modal__account-detail-label">Your Balance</Typography>
-              <Typography className="add-pearl-modal__account-detail-value">{trim(account?.balances?.pearl ?? 0, 4)} FJORD</Typography>
+              <Typography className="add-pearl-modal__account-detail-value">
+                {trim(account?.balances?.pearl ?? 0, 4)} FJORD
+              </Typography>
             </div>
             {/* <div className="add-pearl-modal__account-detail">
               <Typography className="add-pearl-modal__account-detail-label">Next Reward</Typography>
@@ -158,7 +190,9 @@ export default function AddPearlToNoteModal({ open = false, lockNote, term, disc
             </div> */}
             <div className="add-pearl-modal__account-detail">
               <Typography className="add-pearl-modal__account-detail-label">Next Reward Yield</Typography>
-              <Typography className="add-pearl-modal__account-detail-value">{percentageFormatter.format(term?.rewardRate || 0)}</Typography>
+              <Typography className="add-pearl-modal__account-detail-value">
+                {percentageFormatter.format(term?.rewardRate || 0)}
+              </Typography>
             </div>
           </div>
         </Paper>
@@ -180,8 +214,12 @@ function NoteCard({ term, discount, qualified }: { term: ITerm; discount: number
         </Typography>
         {discount !== 0 && (
           <>
-            <Typography className="add-pearl-modal__card-discount">Use this note to receive a {discount}% discount on any (4,4) bond.</Typography>
-            <Typography className="add-pearl-modal__card-requirement">(Minimum {term.minLockAmount} FJORD locked-up required to get this note)</Typography>
+            <Typography className="add-pearl-modal__card-discount">
+              Use this note to receive a {discount}% discount on any (4,4) bond.
+            </Typography>
+            <Typography className="add-pearl-modal__card-requirement">
+              (Minimum {term.minLockAmount} FJORD locked-up required to get this note)
+            </Typography>
           </>
         )}
         {discount === 0 && <Typography className="add-pearl-modal__no-discount">No extra note bonus</Typography>}

@@ -90,7 +90,14 @@ function App() {
 
     if (whichDetails === 'userBonds' && address && connected) {
       Object.values(BondKeys).map(async bondKey => {
-        await dispatch(calculateUserBondDetails({ address, bondKey, provider, networkID: chainID }));
+        await dispatch(
+          calculateUserBondDetails({
+            address,
+            bondKey,
+            provider,
+            networkID: chainID,
+          }),
+        );
       });
     }
   }
@@ -100,7 +107,13 @@ function App() {
       dispatch(loadAppDetails({ networkID: chainID, provider: loadProvider }));
       BondKeys.map(bondKey => {
         dispatch(
-          calcBondDetails({ bondKey, value: null, provider: loadProvider, networkID: chainID, userBalance: '0' }),
+          calcBondDetails({
+            bondKey,
+            value: null,
+            provider: loadProvider,
+            networkID: chainID,
+            userBalance: '0',
+          }),
         );
       });
     },
@@ -109,7 +122,13 @@ function App() {
 
   const loadAccount = useCallback(
     loadProvider => {
-      dispatch(loadAccountDetails({ networkID: chainID, address, provider: loadProvider }));
+      dispatch(
+        loadAccountDetails({
+          networkID: chainID,
+          address,
+          provider: loadProvider,
+        }),
+      );
     },
     [connected],
   );

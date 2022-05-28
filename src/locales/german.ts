@@ -217,7 +217,8 @@ const German = {
         'Wird jedem Otter verliehen, der mindestens 2 Wochen mit mehr als 4 sNJORD am Drop-Datum gestaked hat.',
       furryhandDescription:
         'Verliehen an jeden Otter, der mindestens 2 Wochen mit mehr als 40 sNJORD am Drop-Datum gestaked hat',
-      stonehandDescription: 'Verliehen an Wallets mit über 56 sNJORD, die vom 09.11. bis zum Drop-Datum gestaked haben.',
+      stonehandDescription:
+        'Verliehen an Wallets mit über 56 sNJORD, die vom 09.11. bis zum Drop-Datum gestaked haben.',
       diamondhandDescription:
         'Verliehen für das Staken der vollen NJORD-Menge vom IDO oder dem Startdatum (11.03., mit einem Minimum von 20 sNJORD) bis zum Drop-Datum',
       giveawayParty: 'Geschenkeparty',

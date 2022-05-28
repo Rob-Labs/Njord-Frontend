@@ -180,7 +180,12 @@ function NavContent() {
                 </div>
               </Link>
 
-              <Link href={'https://app.bogged.finance/bsc/swap?tokenIn=BNB&tokenOut=' + NJORD_ADDRESS} target="_blank" rel="noreferrer" className="button-dapp-menu">
+              <Link
+                href={'https://app.bogged.finance/bsc/swap?tokenIn=BNB&tokenOut=' + NJORD_ADDRESS}
+                target="_blank"
+                rel="noreferrer"
+                className="button-dapp-menu"
+              >
                 <div className="dapp-menu-item">
                   <InactiveMenuIcon />
                   <p>{t('common.buyThing')}NJORD</p>

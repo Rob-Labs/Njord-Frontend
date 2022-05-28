@@ -110,9 +110,9 @@ export const loadAppDetails = createAsyncThunk(
     const stakingReward = (totalSupply - INITIAL_TOKEN_SUPPLY) / 1e5;
     const deltaTimeFromInit = currentBlockTime - initRebaseStartTime;
     let rebaseRates = 0;
-    
-    console.log(`BNB Price : ${bnbPrice}`)
-    console.log(`NJORD Price : ${rawMarketPrice}`)
+
+    console.log(`BNB Price : ${bnbPrice}`);
+    console.log(`NJORD Price : ${rawMarketPrice}`);
     console.log(`deltaTimeFromInit : ${deltaTimeFromInit}`);
 
     if (deltaTimeFromInit >= 8 * 365 * 86400) {
@@ -146,7 +146,7 @@ export const loadAppDetails = createAsyncThunk(
     const nextRebase = epoch.toNumber() + rebaseRate;
 
     const marketPrice = Number(((rawMarketPrice.toNumber() / 1e13) * bnbPrice.toNumber()).toFixed(2));
-    console.log(`marketPrice : ${marketPrice}`)
+    console.log(`marketPrice : ${marketPrice}`);
     const stakingTVL = circSupply * marketPrice;
     const marketCap = circSupply * marketPrice;
     const stakingRatio = circSupply / circSupply;

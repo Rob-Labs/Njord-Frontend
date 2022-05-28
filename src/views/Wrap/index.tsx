@@ -1,4 +1,17 @@
-import { Box, FormControl, Grid, InputAdornment, InputLabel, makeStyles, OutlinedInput, Paper, Tab, Tabs, TabsActions, Zoom } from '@material-ui/core';
+import {
+  Box,
+  FormControl,
+  Grid,
+  InputAdornment,
+  InputLabel,
+  makeStyles,
+  OutlinedInput,
+  Paper,
+  Tab,
+  Tabs,
+  TabsActions,
+  Zoom,
+} from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { Skeleton } from '@material-ui/lab';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -105,7 +118,15 @@ function Wrap() {
     } else {
       setAction(action);
       console.log(String(quantity));
-      let wrapTx: any = await dispatch(changeWrap({ address, action, value: String(quantity), provider, networkID: chainID }));
+      let wrapTx: any = await dispatch(
+        changeWrap({
+          address,
+          action,
+          value: String(quantity),
+          provider,
+          networkID: chainID,
+        }),
+      );
       if (wrapTx.payload == true) {
         handleOpenDialog();
       }
@@ -147,7 +168,12 @@ function Wrap() {
       <Zoom in={true}>
         <Paper className="ohm-card">
           <Grid container direction="column">
-            <Grid container wrap="nowrap" direction={`${isSmallScreen ? 'column' : 'row'}`} alignItems={`${isSmallScreen ? 'center' : 'flex-start'}`}>
+            <Grid
+              container
+              wrap="nowrap"
+              direction={`${isSmallScreen ? 'column' : 'row'}`}
+              alignItems={`${isSmallScreen ? 'center' : 'flex-start'}`}
+            >
               <Grid item>
                 <div className="card-header">
                   <p className="wrap-title">{t('wrap.wrapsClam')}</p>
@@ -169,7 +195,15 @@ function Wrap() {
               ) : (
                 <>
                   <Box className="wrap-action-area">
-                    <Tabs action={tabsActions} centered value={view} indicatorColor="primary" className="wrap-tab-buttons" onChange={changeView} aria-label="wrap tabs">
+                    <Tabs
+                      action={tabsActions}
+                      centered
+                      value={view}
+                      indicatorColor="primary"
+                      className="wrap-tab-buttons"
+                      onChange={changeView}
+                      aria-label="wrap tabs"
+                    >
                       <Tab label="Wrap" {...a11yProps(0)} />
                       <Tab label="Unwrap" {...a11yProps(0)} />
                     </Tabs>
@@ -235,17 +269,25 @@ function Wrap() {
                       fjordBalance={trim(Number(fjordBalance), 4)}
                       action={action}
                     />
-                    <div className="help-text">{address && !hasAllowance('NJORD') && isWrapTab() && <p className="text-desc">{t('wrap.approvalInfo')}</p>}</div>
+                    <div className="help-text">
+                      {address && !hasAllowance('NJORD') && isWrapTab() && (
+                        <p className="text-desc">{t('wrap.approvalInfo')}</p>
+                      )}
+                    </div>
                   </Box>
 
                   <div className={`wrap-user-data`}>
                     <div className="data-row">
                       <p className="data-row-name">{t('wrap.stakedBalance')}</p>
-                      <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(njordBalance), 4)} NJORD</>}</p>
+                      <p className="data-row-value">
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(njordBalance), 4)} NJORD</>}
+                      </p>
                     </div>
                     <div className="data-row">
                       <p className="data-row-name">{t('wrap.wrappedBalance')}</p>
-                      <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(fjordBalance), 4)} FJORD</>}</p>
+                      <p className="data-row-value">
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(fjordBalance), 4)} FJORD</>}
+                      </p>
                     </div>
 
                     <div className="data-row">
@@ -255,13 +297,23 @@ function Wrap() {
 
                     <div className="data-row">
                       <p className="data-row-name">{t('wrap.indexAdjustedBalance')}</p>
-                      <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(indexAdjustedNjord), 4)} NJORD</>}</p>
+                      <p className="data-row-value">
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(indexAdjustedNjord), 4)} NJORD</>}
+                      </p>
                     </div>
 
                     <div className="data-row">
                       <p className="data-row-name">{t('wrap.youWillGet')}</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{isWrapTab() ? `${trim(Number(predictedFjord), 4)} FJORD` : `${trim(Number(predictedNjord), 4)} NJORD`}</>}
+                        {isAppLoading ? (
+                          <Skeleton width="80px" />
+                        ) : (
+                          <>
+                            {isWrapTab()
+                              ? `${trim(Number(predictedFjord), 4)} FJORD`
+                              : `${trim(Number(predictedNjord), 4)} NJORD`}
+                          </>
+                        )}
                       </p>
                     </div>
                   </div>

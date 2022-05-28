@@ -66,7 +66,11 @@ export const changeApproval = createAsyncThunk(
       });
       approveTx = await reserveContract.approve(bond.address, constants.MaxUint256);
       dispatch(
-        fetchPendingTxns({ txnHash: approveTx.hash, text: 'Approving ' + bond.name, type: 'approve_' + bond.key }),
+        fetchPendingTxns({
+          txnHash: approveTx.hash,
+          text: 'Approving ' + bond.name,
+          type: 'approve_' + bond.key,
+        }),
       );
 
       allowance = +(await approvedPromise);
@@ -244,7 +248,13 @@ export const bondAsset = createAsyncThunk(
     let bondTx;
     try {
       bondTx = await bondContract.deposit(valueInWei, maxPremium, depositorAddress);
-      dispatch(fetchPendingTxns({ txnHash: bondTx.hash, text: 'Bonding ' + bond.name, type: 'bond_' + bondKey }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: bondTx.hash,
+          text: 'Bonding ' + bond.name,
+          type: 'bond_' + bondKey,
+        }),
+      );
       await bondTx.wait();
       dispatch(calculateUserBondDetails({ address, bondKey, networkID, provider }));
       return;
@@ -286,7 +296,13 @@ export const redeemBond = createAsyncThunk(
     try {
       redeemTx = await bondContract.redeem(address, autostake === true);
       const pendingTxnType = 'redeem_bond_' + bond.key + (autostake === true ? '_autostake' : '');
-      dispatch(fetchPendingTxns({ txnHash: redeemTx.hash, text: 'Redeeming ' + bond.name, type: pendingTxnType }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: redeemTx.hash,
+          text: 'Redeeming ' + bond.name,
+          type: pendingTxnType,
+        }),
+      );
       await redeemTx.wait();
       await dispatch(calculateUserBondDetails({ address, bondKey, networkID, provider }));
       dispatch(getBalances({ address, networkID, provider }));

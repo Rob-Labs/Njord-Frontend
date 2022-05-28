@@ -41,7 +41,16 @@ interface StakeDialogProps {
   action: string;
 }
 
-function StakeDialog({ open, handleClose, quantity, stakingRebasePercentage, balance, stakeBalance, nextRewardValue, action }: StakeDialogProps) {
+function StakeDialog({
+  open,
+  handleClose,
+  quantity,
+  stakingRebasePercentage,
+  balance,
+  stakeBalance,
+  nextRewardValue,
+  action,
+}: StakeDialogProps) {
   const { t } = useTranslation();
   const styles = useStyles();
   return (
@@ -63,7 +72,9 @@ function StakeDialog({ open, handleClose, quantity, stakingRebasePercentage, bal
             <div className="confirm">
               <span>{action === `stake` ? t('stake.stakeSuccessful') : t('stake.unstakeSuccessful')} </span>
             </div>
-            <div className="logo-wrapper">{action === `stake` ? <img src={StakeGif} style={{ width: 200, height: 200 }} /> : getTokenImage('clam')}</div>
+            <div className="logo-wrapper">
+              {action === `stake` ? <img src={StakeGif} style={{ width: 200, height: 200 }} /> : getTokenImage('clam')}
+            </div>
             <div className="amt-msg">
               {action === `stake` ? (
                 <div className="rcv">

@@ -26,7 +26,9 @@ export const checkIDOWhiteList = createAsyncThunk(
     // const whitelist = new ethers.Contract(addresses.IDO, IDOContract, provider);
     // const whitelisted = await whitelist.whiteListed(walletAddress);
     try {
-      const whitelisted = await axios.get('https://us-central1-assetflow-dev.cloudfunctions.net/checkWhiteList?wallet=' + walletAddress);
+      const whitelisted = await axios.get(
+        'https://us-central1-assetflow-dev.cloudfunctions.net/checkWhiteList?wallet=' + walletAddress,
+      );
 
       return {
         whitelisted,

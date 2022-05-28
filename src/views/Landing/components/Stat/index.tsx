@@ -53,7 +53,12 @@ function Stat() {
             <p className="landing-footer-item-title">{t('common.currentApy')}</p>
             <p className="landing-footer-item-value">
               {stakingAPY ? (
-                <>{new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(Number(stakingAPY))}%</>
+                <>
+                  {new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 0,
+                  }).format(Number(stakingAPY))}
+                  %
+                </>
               ) : (
                 <Skeleton width="150px" />
               )}

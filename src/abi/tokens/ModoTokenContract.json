@@ -2,10 +2,26 @@
   "abi": [
     {
       "inputs": [
-        { "internalType": "address payable", "name": "_autoLiquidityFund", "type": "address" },
-        { "internalType": "address payable", "name": "_treasuryFund", "type": "address" },
-        { "internalType": "address payable", "name": "_njordRiskFreeFund", "type": "address" },
-        { "internalType": "address payable", "name": "_supplyControl", "type": "address" }
+        {
+          "internalType": "address payable",
+          "name": "_autoLiquidityFund",
+          "type": "address"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_treasuryFund",
+          "type": "address"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_njordRiskFreeFund",
+          "type": "address"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_supplyControl",
+          "type": "address"
+        }
       ],
       "stateMutability": "nonpayable",
       "type": "constructor"
@@ -13,9 +29,24 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": true, "internalType": "address", "name": "owner", "type": "address" },
-        { "indexed": true, "internalType": "address", "name": "spender", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
       ],
       "name": "Approval",
       "type": "event"
@@ -23,8 +54,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "bool", "name": "oldValue", "type": "bool" },
-        { "indexed": false, "internalType": "bool", "name": "newValue", "type": "bool" }
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "oldValue",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "newValue",
+          "type": "bool"
+        }
       ],
       "name": "LogAutoLiquidityChanged",
       "type": "event"
@@ -32,8 +73,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "bool", "name": "oldValue", "type": "bool" },
-        { "indexed": false, "internalType": "bool", "name": "newValue", "type": "bool" }
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "oldValue",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "newValue",
+          "type": "bool"
+        }
       ],
       "name": "LogAutoRebaseChanged",
       "type": "event"
@@ -41,8 +92,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "address", "name": "botAddress", "type": "address" },
-        { "indexed": false, "internalType": "bool", "name": "blacklistStatus", "type": "bool" }
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "botAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "blacklistStatus",
+          "type": "bool"
+        }
       ],
       "name": "LogBotBlacklisted",
       "type": "event"
@@ -50,8 +111,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "address", "name": "from", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
       "name": "LogFallback",
       "type": "event"
@@ -59,10 +130,30 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "address", "name": "newAutoLiquidityFund", "type": "address" },
-        { "indexed": false, "internalType": "address", "name": "newTreasuryFund", "type": "address" },
-        { "indexed": false, "internalType": "address", "name": "newNjordRiskFreeFund", "type": "address" },
-        { "indexed": false, "internalType": "address", "name": "newSupplyControl", "type": "address" }
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAutoLiquidityFund",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newTreasuryFund",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newNjordRiskFreeFund",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newSupplyControl",
+          "type": "address"
+        }
       ],
       "name": "LogFeeReceiversChanged",
       "type": "event"
@@ -70,8 +161,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "address", "name": "oldPairAddress", "type": "address" },
-        { "indexed": false, "internalType": "address", "name": "newPairAddress", "type": "address" }
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldPairAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newPairAddress",
+          "type": "address"
+        }
       ],
       "name": "LogPairAddressChanged",
       "type": "event"
@@ -79,8 +180,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": true, "internalType": "uint256", "name": "epoch", "type": "uint256" },
-        { "indexed": false, "internalType": "uint256", "name": "totalSupply", "type": "uint256" }
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "epoch",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "totalSupply",
+          "type": "uint256"
+        }
       ],
       "name": "LogRebase",
       "type": "event"
@@ -88,8 +199,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "uint256", "name": "oldRate", "type": "uint256" },
-        { "indexed": false, "internalType": "uint256", "name": "newRate", "type": "uint256" }
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldRate",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newRate",
+          "type": "uint256"
+        }
       ],
       "name": "LogRebaseRateChanged",
       "type": "event"
@@ -97,8 +218,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "bool", "name": "oldStatus", "type": "bool" },
-        { "indexed": false, "internalType": "bool", "name": "newStatus", "type": "bool" }
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "oldStatus",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "newStatus",
+          "type": "bool"
+        }
       ],
       "name": "LogRebaseRateOwnerChanged",
       "type": "event"
@@ -106,8 +237,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "address", "name": "from", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
       "name": "LogReceive",
       "type": "event"
@@ -115,8 +256,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
       "name": "LogRecoverBNB",
       "type": "event"
@@ -124,9 +275,24 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": true, "internalType": "address", "name": "tokenAddress", "type": "address" },
-        { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
       ],
       "name": "LogRecoverERC20",
       "type": "event"
@@ -134,8 +300,18 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "bool", "name": "oldStatus", "type": "bool" },
-        { "indexed": false, "internalType": "bool", "name": "newStatus", "type": "bool" }
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "oldStatus",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "newStatus",
+          "type": "bool"
+        }
       ],
       "name": "LogTradingStatusChanged",
       "type": "event"
@@ -143,20 +319,76 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": false, "internalType": "bool", "name": "oldStatus", "type": "bool" },
-        { "indexed": false, "internalType": "bool", "name": "newStatus", "type": "bool" }
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "oldStatus",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "newStatus",
+          "type": "bool"
+        }
       ],
       "name": "LogTransferStatusChanged",
       "type": "event"
     },
-    { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "address", "name": "account", "type": "address" }], "name": "LogWhitelistAdded", "type": "event" },
-    { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "address", "name": "account", "type": "address" }], "name": "LogWhitelistRemoved", "type": "event" },
-    { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }], "name": "OwnershipRenounced", "type": "event" },
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
-        { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "LogWhitelistAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "LogWhitelistRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipRenounced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
       ],
       "name": "OwnershipTransferred",
       "type": "event"
@@ -164,23 +396,92 @@
     {
       "anonymous": false,
       "inputs": [
-        { "indexed": true, "internalType": "address", "name": "from", "type": "address" },
-        { "indexed": true, "internalType": "address", "name": "to", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
       ],
       "name": "Transfer",
       "type": "event"
     },
     { "stateMutability": "payable", "type": "fallback" },
-    { "inputs": [], "name": "DEAD", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "DECIMALS", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "INDEX", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "MAX_UINT256", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "RATE_DECIMALS", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "ZERO", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "_autoAddLiquidity", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "_autoRebase", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "_initRebaseStartTime", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [],
+      "name": "DEAD",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DECIMALS",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "INDEX",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_UINT256",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "RATE_DECIMALS",
+      "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ZERO",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_autoAddLiquidity",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_autoRebase",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_initRebaseStartTime",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "name": "_isFeeExempt",
@@ -188,9 +489,27 @@
       "stateMutability": "view",
       "type": "function"
     },
-    { "inputs": [], "name": "_lastAddLiquidityTime", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "_lastRebasedTime", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "_totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [],
+      "name": "_lastAddLiquidityTime",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_lastRebasedTime",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_totalSupply",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [
         { "internalType": "address", "name": "owner_", "type": "address" },
@@ -211,7 +530,13 @@
       "stateMutability": "nonpayable",
       "type": "function"
     },
-    { "inputs": [], "name": "autoLiquidityFund", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [],
+      "name": "autoLiquidityFund",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [{ "internalType": "uint256", "name": "gons", "type": "uint256" }],
       "name": "balanceForGons",
@@ -240,19 +565,41 @@
       "stateMutability": "view",
       "type": "function"
     },
-    { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [
         { "internalType": "address", "name": "spender", "type": "address" },
-        { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }
+        {
+          "internalType": "uint256",
+          "name": "subtractedValue",
+          "type": "uint256"
+        }
       ],
       "name": "decreaseAllowance",
       "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
       "stateMutability": "nonpayable",
       "type": "function"
     },
-    { "inputs": [], "name": "feeDenominator", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "getCirculatingSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [],
+      "name": "feeDenominator",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCirculatingSupply",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [{ "internalType": "uint256", "name": "accuracy", "type": "uint256" }],
       "name": "getLiquidityBacking",
@@ -267,7 +614,13 @@
       "stateMutability": "view",
       "type": "function"
     },
-    { "inputs": [], "name": "inSwap", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [],
+      "name": "inSwap",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [
         { "internalType": "address", "name": "spender", "type": "address" },
@@ -278,31 +631,131 @@
       "stateMutability": "nonpayable",
       "type": "function"
     },
-    { "inputs": [], "name": "index", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "isNotInSwap", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "isOwner", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "isOwnerRebaseEnabled", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "isTradingEnabled", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "isTransferEnabled", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "liquidityFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "manualSync", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "njordRiskFreeFund", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "njordRiskFreeFundFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "ownerRebaseRate", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "pairAddress", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
     {
       "inputs": [],
-      "name": "pairContract",
-      "outputs": [{ "internalType": "contract IPancakeSwapPair", "name": "", "type": "address" }],
+      "name": "index",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
-    { "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "recoverBNB", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+      "inputs": [],
+      "name": "isNotInSwap",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isOwnerRebaseEnabled",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isTradingEnabled",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isTransferEnabled",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "liquidityFee",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "manualSync",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "njordRiskFreeFund",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "njordRiskFreeFundFee",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ownerRebaseRate",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pairAddress",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pairContract",
+      "outputs": [
+        {
+          "internalType": "contract IPancakeSwapPair",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }],
+      "name": "recoverBNB",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
     {
       "inputs": [
-        { "internalType": "address", "name": "tokenAddress", "type": "address" },
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
         { "internalType": "uint256", "name": "tokenAmount", "type": "uint256" }
       ],
       "name": "recoverERC20",
@@ -317,17 +770,47 @@
       "stateMutability": "nonpayable",
       "type": "function"
     },
-    { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
     {
       "inputs": [],
       "name": "router",
-      "outputs": [{ "internalType": "contract IPancakeSwapRouter", "name": "", "type": "address" }],
+      "outputs": [
+        {
+          "internalType": "contract IPancakeSwapRouter",
+          "name": "",
+          "type": "address"
+        }
+      ],
       "stateMutability": "view",
       "type": "function"
     },
-    { "inputs": [], "name": "sellFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [{ "internalType": "bool", "name": "_flag", "type": "bool" }], "name": "setAutoAddLiquidity", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [{ "internalType": "bool", "name": "_flag", "type": "bool" }], "name": "setAutoRebase", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+      "inputs": [],
+      "name": "sellFee",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "bool", "name": "_flag", "type": "bool" }],
+      "name": "setAutoAddLiquidity",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "bool", "name": "_flag", "type": "bool" }],
+      "name": "setAutoRebase",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
     {
       "inputs": [
         { "internalType": "address", "name": "_botAddress", "type": "address" },
@@ -340,10 +823,26 @@
     },
     {
       "inputs": [
-        { "internalType": "address", "name": "_autoLiquidityFund", "type": "address" },
-        { "internalType": "address", "name": "_treasuryFund", "type": "address" },
-        { "internalType": "address", "name": "_njordRiskFreeFund", "type": "address" },
-        { "internalType": "address", "name": "_supplyControl", "type": "address" }
+        {
+          "internalType": "address",
+          "name": "_autoLiquidityFund",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_treasuryFund",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_njordRiskFreeFund",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_supplyControl",
+          "type": "address"
+        }
       ],
       "name": "setFeeReceivers",
       "outputs": [],
@@ -364,16 +863,76 @@
       "stateMutability": "nonpayable",
       "type": "function"
     },
-    { "inputs": [{ "internalType": "address", "name": "_addr", "type": "address" }], "name": "setWhitelist", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [], "name": "supplyControl", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "supplyControlFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "swapEnabled", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "toggleOwnerRebase", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [], "name": "toggleTradingStatus", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [], "name": "toggleTransferStatus", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [], "name": "totalFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
+    {
+      "inputs": [{ "internalType": "address", "name": "_addr", "type": "address" }],
+      "name": "setWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "supplyControl",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "supplyControlFee",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "swapEnabled",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "toggleOwnerRebase",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "toggleTradingStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "toggleTransferStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalFee",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "inputs": [
         { "internalType": "address", "name": "to", "type": "address" },
@@ -402,9 +961,27 @@
       "stateMutability": "nonpayable",
       "type": "function"
     },
-    { "inputs": [], "name": "treasuryFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "treasuryFund", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-    { "inputs": [], "name": "withdrawAllToTreasury", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+      "inputs": [],
+      "name": "treasuryFee",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "treasuryFund",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawAllToTreasury",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
     { "stateMutability": "payable", "type": "receive" }
   ]
 }

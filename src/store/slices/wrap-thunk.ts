@@ -41,7 +41,13 @@ export const approveWrapping = createAsyncThunk(
       const text = 'Approve Wrapping';
       const pendingTxnType = 'approve_wrapping';
 
-      dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: approveTx.hash,
+          text,
+          type: pendingTxnType,
+        }),
+      );
       allowance = +(await approvedPromise);
     } catch (error: any) {
       alert(error.message);
@@ -97,7 +103,7 @@ export const changeWrap = createAsyncThunk(
           fjordContract.on(event, action);
         });
         inputValue = ethers.utils.parseUnits(value, 'mwei').div(10);
-        console.log(`inputValue : ${inputValue}`)
+        console.log(`inputValue : ${inputValue}`);
         wrapTx = await fjordContract.wrap(inputValue);
       } else {
         transferPromise = new Promise(resolve => {
@@ -112,7 +118,13 @@ export const changeWrap = createAsyncThunk(
         wrapTx = await fjordContract.unwrap(inputValue);
       }
       const pendingTxnType = action === 'wrap' ? 'wrapping' : 'unwrapping';
-      dispatch(fetchPendingTxns({ txnHash: wrapTx.hash, text: getWrappingTypeText(action), type: pendingTxnType }));
+      dispatch(
+        fetchPendingTxns({
+          txnHash: wrapTx.hash,
+          text: getWrappingTypeText(action),
+          type: pendingTxnType,
+        }),
+      );
       await wrapTx.wait();
       resolvedAmount = await transferPromise;
     } catch (error: any) {

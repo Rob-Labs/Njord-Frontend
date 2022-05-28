@@ -89,7 +89,12 @@ function reducer(state: State, action: Action): State {
       return { ...state, txPending: false };
     }
     case 'error': {
-      return { ...state, error: action.error, loading: false, txPending: false };
+      return {
+        ...state,
+        error: action.error,
+        loading: false,
+        txPending: false,
+      };
     }
   }
 }
@@ -227,7 +232,14 @@ export default function IDO() {
       <div className={styles.learnMoreArea}>
         {ethers.utils.parseUnits(state.stakingAmount || '0', 9).eq(0) && (
           <div className={styles.claimButton}>
-            <Button variant="contained" color="primary" size="medium" disableElevation onClick={claim} disabled={!state.finalized || state.txPending}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="medium"
+              disableElevation
+              onClick={claim}
+              disabled={!state.finalized || state.txPending}
+            >
               Claim & Stake
             </Button>
             {!state.finalized && <p>Stake & Claim will be available after 2021/11/3 0:00 UTC</p>}
@@ -253,7 +265,9 @@ export default function IDO() {
       <LandingHeader />
       <div className={styles.hero_section}>
         <h1 className={styles.title}>Claim your NJORD</h1>
-        <p className={styles.desc}>The IDO will be held from Nov 1, 2021 0:00 UTC to Nov 2, 2021 23:59 UTC. Join the Otter`s Kingdom now!🦦</p>
+        <p className={styles.desc}>
+          The IDO will be held from Nov 1, 2021 0:00 UTC to Nov 2, 2021 23:59 UTC. Join the Otter`s Kingdom now!🦦
+        </p>
       </div>
 
       <div className={styles.mainBox}>

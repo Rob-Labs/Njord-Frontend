@@ -8,6 +8,7 @@ const Tagalog = {
       migrate: 'Migrasyon',
       roi: 'ROI', //Pagbabalik ng Puhunan
       max: 'Pinakamataas',
+
       apy: 'APY', // Porsyento ng Interes kada Taon
       tvl: 'TVL', //Buong Halaga na naka-lock
       amount: 'Halaga',
