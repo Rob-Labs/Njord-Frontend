@@ -39,8 +39,8 @@ export default function PearlChests() {
           <div className="pearl-chests__main">
             <div className="pearl-chests__main-left">
               <Typography className="pearl-chests__title" variant="h3" component="h1">
-                {t('pearlChests.title')} (<span className="pearl-chests__pearl-image">{getTokenImage('pearl')}</span>,{' '}
-                <span className="pearl-chests__pearl-image">{getTokenImage('pearl')}</span>)
+                {t('pearlChests.title')} (<span className="pearl-chests__pearl-image">{getTokenImage('fjord')}</span>,{' '}
+                <span className="pearl-chests__pearl-image">{getTokenImage('fjord')}</span>)
               </Typography>
 
               <Typography className="pearl-chests__subtitle" variant="h5" component="h2">

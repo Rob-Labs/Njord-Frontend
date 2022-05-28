@@ -48,7 +48,7 @@ function TreasuryDashboard() {
     {
       title: t('common.FJORDPrice'),
       value: FJORDPrice ? formatCurrency(FJORDPrice, 2) : null,
-      image: getTokenImage('pearl'),
+      image: getTokenImage('fjord'),
     },
   ];
   const displayData2 = [

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { CountdownCircleTimer } from '../../Packages/react-countdown-circle-timer';
 import { Box } from '@material-ui/core';
 import './rebasetimer.scss';
 import { Skeleton } from '@material-ui/lab';

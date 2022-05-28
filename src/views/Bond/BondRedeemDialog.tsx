@@ -57,7 +57,7 @@ function BondRedeemDialog({ open, handleClose, balance, pendingPayout }: BondDia
             <div className="confirm">
               <span>{t('bonds.redeem.successful')}</span>
             </div>
-            <div className="logo-wrapper">{getTokenImage('sclam')}</div>
+            <div className="logo-wrapper">{getTokenImage('njord')}</div>
             <div className="amt-msg">
               {t('stake.youReceived')} <span className="quantity">{pendingPayout}</span> sNJORD!
             </div>
