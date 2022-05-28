@@ -15,8 +15,8 @@ export async function getMarketPrice(
 
   const [njord, bnb] = [reserves[0], reserves[1]];
   const marketPrice = bnb.div(njord);
-  // console.log(`njord : ${njord}` );
-  // console.log(`bnb : ${bnb}` );
+  // console.log(`njord : ${njord}`);
+  // console.log(`bnb : ${bnb}`);
   // console.log(`njord marketPrice : ${marketPrice}`);
   return marketPrice;
 }
