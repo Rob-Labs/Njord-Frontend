@@ -1,7 +1,7 @@
 import { JsonRpcProvider } from '@ethersproject/providers';
 import { formatUnits } from '@ethersproject/units';
 import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit';
-import { ethers } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 import { ModoTokenContract } from '../../abi';
 import { getAddresses, INITIAL_TOKEN_SUPPLY } from '../../constants';
 import { getMarketPrice, getBnbPrice, getTokenPrice, setAll } from '../../helpers';
@@ -80,7 +80,7 @@ export const loadAppDetails = createAsyncThunk(
       treasuryBNBBalance,
       rfvBalance,
       rfvBNBBalance,
-      wModoBalance,
+      FjordBalance,
       circSupply,
       totalSupply,
       epoch,
@@ -144,8 +144,9 @@ export const loadAppDetails = createAsyncThunk(
     }
 
     const nextRebase = epoch.toNumber() + rebaseRate;
-
-    const marketPrice = Number(((rawMarketPrice.toNumber() / 1e13) * bnbPrice.toNumber()).toFixed(2));
+    console.log(rawMarketPrice.div(BigNumber.from('100000')).toNumber());
+    const marketPrice = Number(ethers.utils.formatUnits(rawMarketPrice.mul(bnbPrice), BigNumber.from('13')));
+    // const marketPrice = Number(((rawMarketPrice.toNumber() / 1e13) * bnbPrice.toNumber()).toFixed(12));
     console.log(`marketPrice : ${marketPrice}`);
     const stakingTVL = circSupply * marketPrice;
     const marketCap = circSupply * marketPrice;
@@ -160,7 +161,7 @@ export const loadAppDetails = createAsyncThunk(
 
     const SupplyControl = totalSupply - circSupply;
     const SupplyControlValue = (marketPrice * SupplyControl).toFixed(2);
-    const FJORDTVL = (marketPrice * wModoBalance).toFixed(2);
+    const FJORDTVL = (marketPrice * FjordBalance).toFixed(2);
 
     return {
       currentIndex,

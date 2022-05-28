@@ -38,7 +38,7 @@ function TreasuryDashboard() {
   const displayData = [
     {
       title: t('common.clamPrice'),
-      value: marketPrice ? formatCurrency(marketPrice, 2) : null,
+      value: marketPrice ? formatCurrency(marketPrice, 5) : null,
       image: getTokenImage('clam'),
     },
     {
