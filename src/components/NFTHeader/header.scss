@@ -1,0 +1,80 @@
+.ntf-header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  padding: 0 10%;
+  align-items: center;
+  justify-content: flex-end;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  background-color: #0a0e23;
+  border-bottom: 1px solid;
+  border-color: #425475;
+
+  &__logo {
+    flex: 1;
+  }
+
+  &__logo-image {
+    height: 40px;
+    width: auto;
+  }
+
+  &__link {
+    margin-left: 40px !important;
+  }
+
+  @media screen and (max-width: 1124px) {
+    display: none;
+  }
+
+  #lang-picker {
+    #lang-popper,
+    #lang-popper-pending {
+      z-index: 9999;
+      backdrop-filter: blur(33px);
+      -webkit-backdrop-filter: blur(33px);
+      margin-top: 10px;
+      border-radius: 10px;
+
+      .MuiPaper-root.lang-menu {
+        padding: 16px 6px;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        max-width: 200px;
+        border-radius: 10px;
+      }
+    }
+
+    .lang-button-border-false {
+      cursor: pointer;
+      margin-right: 20px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 40px;
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+#lang-popper {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  max-width: 200px;
+  border-radius: 10px;
+
+  .select-language {
+    padding-left: 16px;
+  }
+}
