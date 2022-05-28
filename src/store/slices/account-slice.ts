@@ -48,66 +48,59 @@ export interface IAccount {
   };
 }
 
-export const getBalances = createAsyncThunk(
-  'account/getBalances',
-  async ({ address, networkID, provider }: IAccountProps) => {
-    const addresses = getAddresses(networkID);
-    const sClamContract = new ethers.Contract(addresses.sNJORD_ADDRESS, StakedClamContract, provider);
-    const sClamBalance = await sClamContract.balanceOf(address);
-    const njordContract = new ethers.Contract(addresses.NJORD_ADDRESS, ModoTokenContract, provider);
-    const njordBalance = await njordContract.balanceOf(address);
-    const fjordContract = new ethers.Contract(addresses.FJORD_ADDRESS, wModoTokenContract, provider);
-    const fjordBalance = await fjordContract.balanceOf(address);
-    return {
-      balances: {
-        sClam: ethers.utils.formatUnits(sClamBalance, 5),
-        njord: ethers.utils.formatUnits(njordBalance, 5),
-        fjord: ethers.utils.formatEther(fjordBalance),
-      },
-    };
-  },
-);
+export const getBalances = createAsyncThunk('account/getBalances', async ({ address, networkID, provider }: IAccountProps) => {
+  const addresses = getAddresses(networkID);
+  const sClamContract = new ethers.Contract(addresses.sNJORD_ADDRESS, StakedClamContract, provider);
+  const sClamBalance = await sClamContract.balanceOf(address);
+  const njordContract = new ethers.Contract(addresses.NJORD_ADDRESS, ModoTokenContract, provider);
+  const njordBalance = await njordContract.balanceOf(address);
+  const fjordContract = new ethers.Contract(addresses.FJORD_ADDRESS, wModoTokenContract, provider);
+  const fjordBalance = await fjordContract.balanceOf(address);
+  return {
+    balances: {
+      sClam: ethers.utils.formatUnits(sClamBalance, 5),
+      njord: ethers.utils.formatUnits(njordBalance, 5),
+      fjord: ethers.utils.formatEther(fjordBalance),
+    },
+  };
+});
 
-export const loadAccountDetails = createAsyncThunk(
-  'account/loadAccountDetails',
-  async ({ networkID, provider, address }: IAccountProps): Promise<IAccount> => {
-    const addresses = getAddresses(networkID);
+export const loadAccountDetails = createAsyncThunk('account/loadAccountDetails', async ({ networkID, provider, address }: IAccountProps): Promise<IAccount> => {
+  const addresses = getAddresses(networkID);
 
-    const bnbContract = new ethers.Contract(addresses.BNB_ADDRESS, BNBContract, provider);
-    const njordContract = new ethers.Contract(addresses.NJORD_ADDRESS, ModoTokenContract, provider);
-    const sClamContract = new ethers.Contract(addresses.sNJORD_ADDRESS, StakedClamContract, provider);
-    const fjordContract = new ethers.Contract(addresses.FJORD_ADDRESS, wModoTokenContract, provider);
+  const bnbContract = new ethers.Contract(addresses.BNB_ADDRESS, BNBContract, provider);
+  const njordContract = new ethers.Contract(addresses.NJORD_ADDRESS, ModoTokenContract, provider);
+  const sClamContract = new ethers.Contract(addresses.sNJORD_ADDRESS, StakedClamContract, provider);
+  const fjordContract = new ethers.Contract(addresses.FJORD_ADDRESS, wModoTokenContract, provider);
 
-    const [bnbBalance, njordBalance, sClamBalance, fjordBalance, stakeAllowance, unstakeAllowance, wrapAllowance] =
-      await Promise.all([
-        bnbContract.balanceOf(address),
-        njordContract.balanceOf(address),
-        sClamContract.balanceOf(address),
-        fjordContract.balanceOf(address),
-        njordContract.allowance(address, addresses.STAKING_HELPER_ADDRESS),
-        sClamContract.allowance(address, addresses.STAKING_ADDRESS),
-        njordContract.allowance(address, addresses.FJORD_ADDRESS),
-      ]);
+  const [bnbBalance, njordBalance, sClamBalance, fjordBalance, stakeAllowance, unstakeAllowance, wrapAllowance] = await Promise.all([
+    bnbContract.balanceOf(address),
+    njordContract.balanceOf(address),
+    sClamContract.balanceOf(address),
+    fjordContract.balanceOf(address),
+    njordContract.allowance(address, addresses.STAKING_HELPER_ADDRESS),
+    sClamContract.allowance(address, addresses.STAKING_ADDRESS),
+    njordContract.allowance(address, addresses.FJORD_ADDRESS),
+  ]);
 
-    return {
-      balances: {
-        sClam: ethers.utils.formatUnits(sClamBalance, 5),
-        njord: ethers.utils.formatUnits(njordBalance, 5),
-        bnb: ethers.utils.formatEther(bnbBalance),
-        fjord: ethers.utils.formatEther(fjordBalance),
-      },
-      staking: {
-        njordStake: +stakeAllowance,
-        sClamUnstake: +unstakeAllowance,
-        warmup: '0',
-        canClaimWarmup: false,
-      },
-      wrapping: {
-        njordWrap: +wrapAllowance,
-      },
-    };
-  },
-);
+  return {
+    balances: {
+      sClam: ethers.utils.formatUnits(sClamBalance, 5),
+      njord: ethers.utils.formatUnits(njordBalance, 5),
+      bnb: ethers.utils.formatEther(bnbBalance),
+      fjord: ethers.utils.formatEther(fjordBalance),
+    },
+    staking: {
+      njordStake: +stakeAllowance,
+      sClamUnstake: +unstakeAllowance,
+      warmup: '0',
+      canClaimWarmup: false,
+    },
+    wrapping: {
+      njordWrap: +wrapAllowance,
+    },
+  };
+});
 
 interface CalculateUserBondDetailsActionPayload {
   address: string;
@@ -118,12 +111,7 @@ interface CalculateUserBondDetailsActionPayload {
 
 export const calculateUserBondDetails = createAsyncThunk(
   'bonding/calculateUserBondDetails',
-  async ({
-    address,
-    bondKey,
-    networkID,
-    provider,
-  }: CalculateUserBondDetailsActionPayload): Promise<IUserBondDetails> => {
+  async ({ address, bondKey, networkID, provider }: CalculateUserBondDetailsActionPayload): Promise<IUserBondDetails> => {
     if (!address) return {};
 
     const addresses = getAddresses(networkID);

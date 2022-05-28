@@ -99,9 +99,7 @@ function App() {
     loadProvider => {
       dispatch(loadAppDetails({ networkID: chainID, provider: loadProvider }));
       BondKeys.map(bondKey => {
-        dispatch(
-          calcBondDetails({ bondKey, value: null, provider: loadProvider, networkID: chainID, userBalance: '0' }),
-        );
+        dispatch(calcBondDetails({ bondKey, value: null, provider: loadProvider, networkID: chainID, userBalance: '0' }));
       });
     },
     [connected],

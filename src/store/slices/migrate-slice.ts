@@ -52,15 +52,14 @@ export const loadMigrationDetails = createAsyncThunk(
     const migrator = new ethers.Contract(addresses.MIGRATOR, ClamTokenMigrator, provider);
     const mai = contractForReserve('mai', networkID, provider);
 
-    const [oldClamBalance, oldSClamBalance, oldWarmup, oldSClamAllowance, clamMigratorAllowance, epoch] =
-      await Promise.all([
-        oldClamContract.balanceOf(address),
-        oldSClamContract.balanceOf(address),
-        oldStakingContract.warmupInfo(address),
-        oldSClamContract.allowance(address, addresses.OLD_STAKING_ADDRESS),
-        oldClamContract.allowance(address, addresses.MIGRATOR),
-        stakingContract.epoch(),
-      ]);
+    const [oldClamBalance, oldSClamBalance, oldWarmup, oldSClamAllowance, clamMigratorAllowance, epoch] = await Promise.all([
+      oldClamContract.balanceOf(address),
+      oldSClamContract.balanceOf(address),
+      oldStakingContract.warmupInfo(address),
+      oldSClamContract.allowance(address, addresses.OLD_STAKING_ADDRESS),
+      oldClamContract.allowance(address, addresses.MIGRATOR),
+      stakingContract.epoch(),
+    ]);
     const oldClamTotalSupply = (await oldClamContract.totalSupply()) / 1e9;
     const oldTreasuryBalance = (await mai.balanceOf(addresses.OLD_TREASURY)) / 1e18;
     const oldTotalSupply = (await migrator.oldSupply()) / 1e9;
@@ -83,90 +82,84 @@ export const loadMigrationDetails = createAsyncThunk(
   },
 );
 
-export const approveUnstaking = createAsyncThunk(
-  'migration/approve-unstaking',
-  async ({ provider, address, networkID }: IChangeApproval, { dispatch }) => {
-    if (!provider) {
-      alert('Please connect your wallet!');
-      return;
+export const approveUnstaking = createAsyncThunk('migration/approve-unstaking', async ({ provider, address, networkID }: IChangeApproval, { dispatch }) => {
+  if (!provider) {
+    alert('Please connect your wallet!');
+    return;
+  }
+  const addresses = getAddresses(networkID);
+  const signer = provider.getSigner();
+  const sNJORDContract = new ethers.Contract(addresses.OLD_SNJORD_ADDRESS, StakedClamContract, signer);
+
+  let approveTx;
+  try {
+    approveTx = await sNJORDContract.approve(addresses.OLD_STAKING_ADDRESS, ethers.constants.MaxUint256);
+
+    const text = 'Approve Unstaking';
+    const pendingTxnType = 'approve_unstaking';
+
+    dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
+
+    await approveTx.wait();
+  } catch (error: any) {
+    alert(error.message);
+    return;
+  } finally {
+    if (approveTx) {
+      dispatch(clearPendingTxn(approveTx.hash));
     }
-    const addresses = getAddresses(networkID);
-    const signer = provider.getSigner();
-    const sNJORDContract = new ethers.Contract(addresses.OLD_SNJORD_ADDRESS, StakedClamContract, signer);
+  }
 
-    let approveTx;
-    try {
-      approveTx = await sNJORDContract.approve(addresses.OLD_STAKING_ADDRESS, ethers.constants.MaxUint256);
+  const sNJORDAllowance = await sNJORDContract.allowance(address, addresses.OLD_STAKING_ADDRESS);
 
-      const text = 'Approve Unstaking';
-      const pendingTxnType = 'approve_unstaking';
+  return dispatch(
+    fetchAccountSuccess({
+      migration: {
+        sNJORDAllowance: +sNJORDAllowance,
+      },
+    }),
+  );
+});
 
-      dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
+export const approveMigration = createAsyncThunk('migration/approve-migration', async ({ provider, address, networkID }: IChangeApproval, { dispatch }) => {
+  if (!provider) {
+    alert('Please connect your wallet!');
+    return;
+  }
+  const addresses = getAddresses(networkID);
 
-      await approveTx.wait();
-    } catch (error: any) {
-      alert(error.message);
-      return;
-    } finally {
-      if (approveTx) {
-        dispatch(clearPendingTxn(approveTx.hash));
-      }
+  const signer = provider.getSigner();
+  const clamContract = new ethers.Contract(addresses.OLD_NJORD_ADDRESS, ModoTokenContract, signer);
+
+  let approveTx;
+  try {
+    approveTx = await clamContract.approve(addresses.MIGRATOR, ethers.constants.MaxUint256);
+
+    const text = 'Approve Migration';
+    const pendingTxnType = 'approve_migration';
+
+    dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
+
+    await approveTx.wait();
+  } catch (error: any) {
+    alert(error.message);
+    return;
+  } finally {
+    if (approveTx) {
+      dispatch(clearPendingTxn(approveTx.hash));
     }
+  }
 
-    const sNJORDAllowance = await sNJORDContract.allowance(address, addresses.OLD_STAKING_ADDRESS);
+  const clamAllowance = await clamContract.allowance(address, addresses.MIGRATOR);
 
-    return dispatch(
-      fetchAccountSuccess({
-        migration: {
-          sNJORDAllowance: +sNJORDAllowance,
-        },
-      }),
-    );
-  },
-);
-
-export const approveMigration = createAsyncThunk(
-  'migration/approve-migration',
-  async ({ provider, address, networkID }: IChangeApproval, { dispatch }) => {
-    if (!provider) {
-      alert('Please connect your wallet!');
-      return;
-    }
-    const addresses = getAddresses(networkID);
-
-    const signer = provider.getSigner();
-    const clamContract = new ethers.Contract(addresses.OLD_NJORD_ADDRESS, ModoTokenContract, signer);
-
-    let approveTx;
-    try {
-      approveTx = await clamContract.approve(addresses.MIGRATOR, ethers.constants.MaxUint256);
-
-      const text = 'Approve Migration';
-      const pendingTxnType = 'approve_migration';
-
-      dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
-
-      await approveTx.wait();
-    } catch (error: any) {
-      alert(error.message);
-      return;
-    } finally {
-      if (approveTx) {
-        dispatch(clearPendingTxn(approveTx.hash));
-      }
-    }
-
-    const clamAllowance = await clamContract.allowance(address, addresses.MIGRATOR);
-
-    return dispatch(
-      fetchAccountSuccess({
-        migration: {
-          clamAllowance: +clamAllowance,
-        },
-      }),
-    );
-  },
-);
+  return dispatch(
+    fetchAccountSuccess({
+      migration: {
+        clamAllowance: +clamAllowance,
+      },
+    }),
+  );
+});
 
 export interface MigrateAction {
   provider: JsonRpcProvider;
@@ -174,34 +167,31 @@ export interface MigrateAction {
   networkID: number;
 }
 
-export const migrate = createAsyncThunk(
-  'migration/migrate',
-  async ({ provider, address, networkID }: MigrateAction, { dispatch }) => {
-    if (!provider) {
-      alert('Please connect your wallet!');
-      return;
-    }
-    const addresses = getAddresses(networkID);
-    const signer = provider.getSigner();
-    const migrator = new ethers.Contract(addresses.MIGRATOR, ClamTokenMigrator, signer);
+export const migrate = createAsyncThunk('migration/migrate', async ({ provider, address, networkID }: MigrateAction, { dispatch }) => {
+  if (!provider) {
+    alert('Please connect your wallet!');
+    return;
+  }
+  const addresses = getAddresses(networkID);
+  const signer = provider.getSigner();
+  const migrator = new ethers.Contract(addresses.MIGRATOR, ClamTokenMigrator, signer);
 
-    let tx;
-    try {
-      tx = await migrator.migrate();
-      dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'Migrating', type: 'migrating' }));
-      await tx.wait();
-    } catch (error: any) {
-      alert(error.message);
-      return;
-    } finally {
-      if (tx) {
-        dispatch(clearPendingTxn(tx.hash));
-      }
+  let tx;
+  try {
+    tx = await migrator.migrate();
+    dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'Migrating', type: 'migrating' }));
+    await tx.wait();
+  } catch (error: any) {
+    alert(error.message);
+    return;
+  } finally {
+    if (tx) {
+      dispatch(clearPendingTxn(tx.hash));
     }
-    dispatch(loadMigrationDetails({ address, networkID, provider }));
-    dispatch(loadAppDetails({ networkID, provider }));
-  },
-);
+  }
+  dispatch(loadMigrationDetails({ address, networkID, provider }));
+  dispatch(loadAppDetails({ networkID, provider }));
+});
 
 interface UnstakeAction {
   value: string;
@@ -210,38 +200,35 @@ interface UnstakeAction {
   networkID: number;
 }
 
-export const unstake = createAsyncThunk(
-  'migration/unstake',
-  async ({ value, provider, address, networkID }: UnstakeAction, { dispatch }) => {
-    if (!provider) {
-      alert('Please connect your wallet!');
-      return;
-    }
-    const addresses = getAddresses(networkID);
-    const signer = provider.getSigner();
-    const staking = new ethers.Contract(addresses.OLD_STAKING_ADDRESS, StakingContract, signer);
+export const unstake = createAsyncThunk('migration/unstake', async ({ value, provider, address, networkID }: UnstakeAction, { dispatch }) => {
+  if (!provider) {
+    alert('Please connect your wallet!');
+    return;
+  }
+  const addresses = getAddresses(networkID);
+  const signer = provider.getSigner();
+  const staking = new ethers.Contract(addresses.OLD_STAKING_ADDRESS, StakingContract, signer);
 
-    let tx;
+  let tx;
 
-    try {
-      tx = await staking.unstake(ethers.utils.parseUnits(value, 'gwei'), false);
-      dispatch(fetchPendingTxns({ txnHash: tx.hash, text: getStakingTypeText('unstake'), type: 'unstaking' }));
-      await tx.wait();
-    } catch (error: any) {
-      if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
-        alert('You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow');
-      } else {
-        alert(error.message);
-      }
-      return;
-    } finally {
-      if (tx) {
-        dispatch(clearPendingTxn(tx.hash));
-      }
+  try {
+    tx = await staking.unstake(ethers.utils.parseUnits(value, 'gwei'), false);
+    dispatch(fetchPendingTxns({ txnHash: tx.hash, text: getStakingTypeText('unstake'), type: 'unstaking' }));
+    await tx.wait();
+  } catch (error: any) {
+    if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
+      alert('You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow');
+    } else {
+      alert(error.message);
     }
-    dispatch(loadMigrationDetails({ address, networkID, provider }));
-  },
-);
+    return;
+  } finally {
+    if (tx) {
+      dispatch(clearPendingTxn(tx.hash));
+    }
+  }
+  dispatch(loadMigrationDetails({ address, networkID, provider }));
+});
 
 interface ClaimWarmupPayload {
   provider: JsonRpcProvider;
@@ -249,69 +236,63 @@ interface ClaimWarmupPayload {
   networkID: number;
 }
 
-export const claimWarmup = createAsyncThunk(
-  'migration/claimWarmup',
-  async ({ provider, address, networkID }: ClaimWarmupPayload, { dispatch }) => {
-    if (!provider) {
-      alert('Please connect your wallet!');
-      return;
-    }
-    const addresses = getAddresses(networkID);
-    const signer = provider.getSigner();
-    const staking = new ethers.Contract(addresses.OLD_STAKING_ADDRESS, StakingContract, signer);
+export const claimWarmup = createAsyncThunk('migration/claimWarmup', async ({ provider, address, networkID }: ClaimWarmupPayload, { dispatch }) => {
+  if (!provider) {
+    alert('Please connect your wallet!');
+    return;
+  }
+  const addresses = getAddresses(networkID);
+  const signer = provider.getSigner();
+  const staking = new ethers.Contract(addresses.OLD_STAKING_ADDRESS, StakingContract, signer);
 
-    let tx;
-    try {
-      tx = await staking.claim(address);
-      dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'CLAIMING', type: 'claimWarmup' }));
-      await tx.wait();
-    } catch (error: any) {
-      if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
-        alert('You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow');
-      } else {
-        alert(error.message);
-      }
-      return;
-    } finally {
-      if (tx) {
-        dispatch(clearPendingTxn(tx.hash));
-      }
+  let tx;
+  try {
+    tx = await staking.claim(address);
+    dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'CLAIMING', type: 'claimWarmup' }));
+    await tx.wait();
+  } catch (error: any) {
+    if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
+      alert('You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow');
+    } else {
+      alert(error.message);
     }
-    dispatch(loadMigrationDetails({ address, networkID, provider }));
-  },
-);
+    return;
+  } finally {
+    if (tx) {
+      dispatch(clearPendingTxn(tx.hash));
+    }
+  }
+  dispatch(loadMigrationDetails({ address, networkID, provider }));
+});
 
-export const clearWarmup = createAsyncThunk(
-  'migration/clear-warmup',
-  async ({ provider, address, networkID }: ClaimWarmupPayload, { dispatch }) => {
-    if (!provider) {
-      alert('Please connect your wallet!');
-      return;
-    }
-    const addresses = getAddresses(networkID);
-    const signer = provider.getSigner();
-    const staking = new ethers.Contract(addresses.OLD_STAKING_ADDRESS, StakingContract, signer);
+export const clearWarmup = createAsyncThunk('migration/clear-warmup', async ({ provider, address, networkID }: ClaimWarmupPayload, { dispatch }) => {
+  if (!provider) {
+    alert('Please connect your wallet!');
+    return;
+  }
+  const addresses = getAddresses(networkID);
+  const signer = provider.getSigner();
+  const staking = new ethers.Contract(addresses.OLD_STAKING_ADDRESS, StakingContract, signer);
 
-    let tx;
-    try {
-      tx = await staking.claim(address);
-      dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'CLAIMING', type: 'claimWarmup' }));
-      await tx.wait();
-    } catch (error: any) {
-      if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
-        alert('You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow');
-      } else {
-        alert(error.message);
-      }
-      return;
-    } finally {
-      if (tx) {
-        dispatch(clearPendingTxn(tx.hash));
-      }
+  let tx;
+  try {
+    tx = await staking.claim(address);
+    dispatch(fetchPendingTxns({ txnHash: tx.hash, text: 'CLAIMING', type: 'claimWarmup' }));
+    await tx.wait();
+  } catch (error: any) {
+    if (error.code === -32603 && error.message.indexOf('ds-math-sub-underflow') >= 0) {
+      alert('You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow');
+    } else {
+      alert(error.message);
     }
-    dispatch(loadMigrationDetails({ address, networkID, provider }));
-  },
-);
+    return;
+  } finally {
+    if (tx) {
+      dispatch(clearPendingTxn(tx.hash));
+    }
+  }
+  dispatch(loadMigrationDetails({ address, networkID, provider }));
+});
 
 const migrateSlice = createSlice({
   name: 'migrate',

@@ -69,8 +69,7 @@ const Italian = {
         holder: 'Detentori, rappresenta il numero totale di  lontre (detentori di sNJORD)',
         staked: 'NJORD Staked, è il rapporto di sNJORD con NJORD (staked vs unstaked)',
         apy: 'Annual Percentage Yield, è la rappresentazione normalizzata di un tasso di interesse, bassata su un periodo di composizione in un anno. Nota che le APY fornite sono più che altro indicatori di livello di riferimento e non sono risultati futuri precisi.', // ballpark ?
-        runway:
-          'Runway, è il numero di giorni per cui le emissioni di  sNJORD sono sostenibili ad un certo tasso di interesse. APY più basso = runway più lungo',
+        runway: 'Runway, è il numero di giorni per cui le emissioni di  sNJORD sono sostenibili ad un certo tasso di interesse. APY più basso = runway più lungo',
         currentIndex:
           "L'indice attuale traccia la quantità di sNJORD accumulati dall'inizio dello staking. In pratica, quanti sNJORD un holder potrebbe possedere se avesse detenuto e messo in stake un NJORD dal giorno 1.",
       },
@@ -105,14 +104,12 @@ const Italian = {
       fullyVestedAt: 'Maturato Completamente il',
       advancedSettings: {
         txrevert: 'La Transazione potrebbe tornare indietro se il prezzo cambia più dello slippage %', //TODO revert
-        recipientAddress:
-          "Scegli l'indirizzo di ricevimento. Di default, questo è il tuo indirizzo attualmente connesso",
+        recipientAddress: "Scegli l'indirizzo di ricevimento. Di default, questo è il tuo indirizzo attualmente connesso",
       },
       purchase: {
         noValue: 'Immetti un valore!',
         invalidValue: 'Immetti un valore valido!',
-        resetVestingAutostake:
-          'Hai già un bond in corso. Il Bonding azzererà il tuo periodo di acquisizione. Vuoi procedre?',
+        resetVestingAutostake: 'Hai già un bond in corso. Il Bonding azzererà il tuo periodo di acquisizione. Vuoi procedre?',
         resetVesting:
           'Hai già un bond in corso. Il Bonding azzererà il tuo periodo di acquisizione e ti farà perdere le ricompense. Raccomandiamo di effettuare prima il claim delle ricompense o usare un nuovo wallet. Vuoi comunque procedere?',
 
@@ -158,12 +155,10 @@ const Italian = {
           'Le commissioni delle vendite di Bond e dei LP aumentano il Ricavo del Tesoro delle Lontre, mantengono la liquidità e aiutano il controllo della fornitura di NJORD',
         treasuryGrowth: 'Crescita del Tesoro',
         otterTreasury: 'Tesoro delle Lontre',
-        treasuryInflow:
-          "L'afflusso del Tesoro è usato per aumentare il saldo del Tesoro delle Lontre, garantire i token NJORD in sospeso e regolare l'APY di staking",
+        treasuryInflow: "L'afflusso del Tesoro è usato per aumentare il saldo del Tesoro delle Lontre, garantire i token NJORD in sospeso e regolare l'APY di staking",
         stakingRewards: 'Ricompense di Staking',
         clamToken: 'Token NJORD',
-        compounds:
-          'Compone i rendimenti automaticamente attraverso una memecoin con valore intrinseco garantita dal tesoro',
+        compounds: 'Compone i rendimenti automaticamente attraverso una memecoin con valore intrinseco garantita dal tesoro',
         treasuryBalance: 'Saldo del Tesoro',
         totalStaked: 'Totale in Staking',
       },
@@ -214,12 +209,9 @@ const Italian = {
     nft: {
       which: 'Che ',
       willYouGet: ' otterrai?',
-      safehandDescription:
-        'In Premio a ogni Lontra che ha messo in staking per un minimo di due settimane più di 4 sNJORD alla data di rilascio.',
-      furryhandDescription:
-        'In Premio a ogni Lontra che ha messo in staking per un minimo di due settimane più di 40 sNJORD alla data di rilascio',
-      stonehandDescription:
-        'In premio ai wallet con più di 56 sNJORD che hanno fatto staking dal 9/11 alla data di rilascio.',
+      safehandDescription: 'In Premio a ogni Lontra che ha messo in staking per un minimo di due settimane più di 4 sNJORD alla data di rilascio.',
+      furryhandDescription: 'In Premio a ogni Lontra che ha messo in staking per un minimo di due settimane più di 40 sNJORD alla data di rilascio',
+      stonehandDescription: 'In premio ai wallet con più di 56 sNJORD che hanno fatto staking dal 9/11 alla data di rilascio.',
       diamondhandDescription:
         "In premio per chi ha in staking l'intera quantita di NJORD dalla IDO o dalla data di lancio (3/11, con un minimo di 20 sNJORD) fino alla data di rilascio",
       giveawayParty: 'Giveaway Party',

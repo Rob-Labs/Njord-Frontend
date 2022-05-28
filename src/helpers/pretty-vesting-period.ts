@@ -34,10 +34,7 @@ export const prettyShortVestingPeriod = (t: any, currentBlockTime: number, vesti
   }
   //if redeem time is within 1 hour it shows: redeem in 8 mins, 35 sec
   if (h == 0 && d == 0) {
-    return (
-      (m > 0 ? m + (m == 1 ? ` ${t('time.minute')}, ` : ` ${t('time.minutes')}, `) : '') +
-      (s > 0 ? s + (s == 1 ? ` ${t('time.second')} ` : ` ${t('time.seconds')} `) : '')
-    );
+    return (m > 0 ? m + (m == 1 ? ` ${t('time.minute')}, ` : ` ${t('time.minutes')}, `) : '') + (s > 0 ? s + (s == 1 ? ` ${t('time.second')} ` : ` ${t('time.seconds')} `) : '');
   }
 
   if (seconds < 0) {

@@ -1,10 +1,9 @@
 {
   "arrowParens": "avoid",
-  "formatOnSave": true,
   "bracketSpacing": true,
   "printWidth": 180,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all",
-  "endOfLine": "lf"
+  "endOfLine": "auto"
 }

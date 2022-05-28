@@ -101,15 +101,13 @@ const Norwegian = {
       purchase: {
         noValue: 'Tast inn et beløp!',
         invalidValue: 'Tast inn et gyldig beløp!',
-        resetVestingAutostake:
-          'Du har en aktiv obligasjon. En ny obligasjon vil tilbakestille forfallstiden din. Vil du fortsette?',
+        resetVestingAutostake: 'Du har en aktiv obligasjon. En ny obligasjon vil tilbakestille forfallstiden din. Vil du fortsette?',
         resetVesting:
           'Du har en aktiv obligasjon. En ny obligasjon vil tilbakestille forfallstiden din og gå glipp av belønningne. Vi anbefaler at du først krever inn belønningene eller bruke en annen crypto-wallet. Vil du fortsette?',
 
         fourFourInfo:
           'NB: Den såkalte (4, 4) obligasjonen vil stake alle NJORD fra begynnelsen av, så du vil tjene på alle rebase under forfallstiden. Når obligasjonen er forfalt så kan du kreve inn sClam belønningene som da har vokst.',
-        approvalInfo:
-          'NB: Du behøver kun å trykke "Godkjenn" når du kjøper en obligasjon den første gangen. Neste gangene så krever det kun at du trykker "kjøp".',
+        approvalInfo: 'NB: Du behøver kun å trykke "Godkjenn" når du kjøper en obligasjon den første gangen. Neste gangene så krever det kun at du trykker "kjøp".',
         roiFourFourInfo: '* avkastningen (ROI) av (4,4) obligasjoner inkluderer 5-dagers stakinggevinst',
 
         youWillGet: 'Du vil få',
@@ -140,12 +138,10 @@ const Norwegian = {
         howModoFinanceWorks: 'Hvordan ModoFinance fungerer',
         treasuryRevenue: 'Verdireserve inntekter',
         bondsLPFees: 'Obligasjoner & LP gebyrer',
-        bondSales:
-          'Salg av obligasjoner og LP (Liquidity pool) gebyrer øker ModoFinances verdireserver og låser inn likviditet og hjelper til med å kontrollere omløpsmengden',
+        bondSales: 'Salg av obligasjoner og LP (Liquidity pool) gebyrer øker ModoFinances verdireserver og låser inn likviditet og hjelper til med å kontrollere omløpsmengden',
         treasuryGrowth: 'Verdireserve vekst',
         otterTreasury: 'ModoFinances verdireserver',
-        treasuryInflow:
-          'Verdireserve innflyt blir brukt til å øke ModoFinances verdireservesaldo og øke støtten av nåværende NJORD token samt regulere gevinsten fra staking',
+        treasuryInflow: 'Verdireserve innflyt blir brukt til å øke ModoFinances verdireservesaldo og øke støtten av nåværende NJORD token samt regulere gevinsten fra staking',
         stakingRewards: 'Staking gevinst',
         clamToken: 'NJORD Token',
         compounds: 'Automatisert rentesrente gjennom en memecrypto med grunnleggende egenverdi',
@@ -198,8 +194,7 @@ const Norwegian = {
       safehandDescription: 'Gis til alle Otere som har staket over 4 sNJORD i minst to uker på airdrop datoen.',
       furryhandDescription: 'Gis til alle Otere som har staket over 40 sNJORD i minst to uker på airdrop datoen',
       stonehandDescription: 'Gis til alle Otere som har staket over 56 sNJORD fra 11/9 frem til airdrop datoen.',
-      diamondhandDescription:
-        'Gis til alle Otere som har staket NJORD fra IDO eller startdatoen, 11/3, med minimum 20 sNJORD frem til airdrop datoen.',
+      diamondhandDescription: 'Gis til alle Otere som har staket NJORD fra IDO eller startdatoen, 11/3, med minimum 20 sNJORD frem til airdrop datoen.',
     },
   },
 };

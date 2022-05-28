@@ -34,12 +34,7 @@ export const isPendingTxn = (pendingTransactions: IPendingTxn[], type: string) =
   return pendingTransactions.map(x => x.type).includes(type);
 };
 
-export const txnButtonText = (
-  pendingTransactions: IPendingTxn[],
-  type: string,
-  progress: string,
-  defaultText: string,
-) => {
+export const txnButtonText = (pendingTransactions: IPendingTxn[], type: string, progress: string, defaultText: string) => {
   return isPendingTxn(pendingTransactions, type) ? progress : defaultText;
 };
 
