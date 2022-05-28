@@ -10,8 +10,8 @@ function BondLogo({ bond }: IBondHeaderProps) {
   const reserveAssetImg = () => {
     if (bond.key.indexOf('clam') >= 0) {
       return getTokenImage('clam', 32);
-    } else if (bond.key.indexOf('mai') >= 0) {
-      return getTokenImage('mai', 32);
+    } else if (bond.key.indexOf('bnb') >= 0) {
+      return getTokenImage('bnb', 32);
     } else if (bond.key.indexOf('frax') >= 0) {
       return getTokenImage('frax', 32);
     } else if (bond.key.indexOf('matic') >= 0) {

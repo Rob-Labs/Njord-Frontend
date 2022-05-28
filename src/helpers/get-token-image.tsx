@@ -36,13 +36,13 @@ export function getWMATICTokenImage(size: number = 32) {
   return <SvgIcon component={WMATIC} viewBox="0 0 32 32" style={style} />;
 }
 
-export type Token = 'clam' | 'mai' | 'sclam' | 'clam2' | 'sclam2' | 'pearl' | 'frax' | 'wmatic';
+export type Token = 'clam' | 'bnb' | 'njord' | 'clam2' | 'njord2' | 'fjord' | 'frax' | 'wmatic';
 
 export function getTokenImage(name: Token, size: number = 32): JSX.Element {
-  if (name === 'mai') return getBNBTokenImage(size);
+  if (name === 'bnb') return getBNBTokenImage(size);
   if (name === 'clam' || name === 'clam2') return getNJORDTokenImage(size);
-  if (name === 'sclam' || name === 'sclam2') return getStakedNJORDTokenImage(size);
-  if (name === 'pearl') return getFJORDTokenImage(size);
+  if (name === 'njord' || name === 'njord2') return getStakedNJORDTokenImage(size);
+  if (name === 'fjord') return getFJORDTokenImage(size);
   if (name === 'frax') return getFRAXTokenImage(size);
   if (name === 'wmatic') return getWMATICTokenImage(size);
 
@@ -60,12 +60,12 @@ export function getTokenUrl(name: Token) {
     return toUrl(path);
   }
 
-  if (name === 'sclam' || name === 'sclam2') {
+  if (name === 'njord' || name === 'njord2') {
     const path = require('../assets/tokens/sNJORD.svg').default;
     return toUrl(path);
   }
 
-  if (name === 'pearl') {
+  if (name === 'fjord') {
     const path = require('../assets/tokens/FJORD.svg').default;
     return toUrl(path);
   }

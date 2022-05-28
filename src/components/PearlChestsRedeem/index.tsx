@@ -152,7 +152,7 @@ function NoteCard({
   const details = [
     {
       label: 'pearlChests.lockupAmount',
-      after: <span className="note__pearl-icon">{getTokenImage('pearl', 20)}</span>,
+      after: <span className="note__pearl-icon">{getTokenImage('fjord', 20)}</span>,
       value: numberFormatter.format(lockNote.amount),
     },
     {
