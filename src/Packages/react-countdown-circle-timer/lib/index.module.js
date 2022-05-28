@@ -55,7 +55,10 @@ var A = (n, e, o) => {
       s = 2 * r,
       m = o === 'clockwise' ? '1,0' : '0,1',
       l = 2 * Math.PI * r;
-    return { path: `m ${t},${u} a ${r},${r} 0 ${m} 0,${s} a ${r},${r} 0 ${m} 0,-${s}`, pathLength: l };
+    return {
+      path: `m ${t},${u} a ${r},${r} 0 ${m} 0,${s} a ${r},${r} 0 ${m} 0,-${s}`,
+      pathLength: l,
+    };
   },
   x = (n, e) => (n === 0 || n === e ? 0 : typeof e == 'number' ? n - e : 0),
   T = n => ({ position: 'relative' }),
@@ -128,12 +131,35 @@ var G = (n, e, o, t) => {
             : void 0,
       }),
       b = e - C;
-    return { elapsedTime: C, path: w, pathLength: y, remainingTime: Math.ceil(b), rotation: l, size: u, stroke: U(n, b), strokeDashoffset: G(C, 0, y, e), strokeWidth: r };
+    return {
+      elapsedTime: C,
+      path: w,
+      pathLength: y,
+      remainingTime: Math.ceil(b),
+      rotation: l,
+      size: u,
+      stroke: U(n, b),
+      strokeDashoffset: G(C, 0, y, e),
+      strokeWidth: r,
+    };
   };
 var W = n => {
   let { children: e, strokeLinecap: o, trailColor: t, trailStrokeWidth: u } = n,
-    { path: r, pathLength: s, stroke: m, strokeDashoffset: l, remainingTime: p, elapsedTime: d, size: i, strokeWidth: c } = $(n);
-  return F.createElement('div', { style: T(i) }, typeof e == 'function' && F.createElement('div', { style: P }, e({ remainingTime: p, elapsedTime: d, color: m })));
+    {
+      path: r,
+      pathLength: s,
+      stroke: m,
+      strokeDashoffset: l,
+      remainingTime: p,
+      elapsedTime: d,
+      size: i,
+      strokeWidth: c,
+    } = $(n);
+  return F.createElement(
+    'div',
+    { style: T(i) },
+    typeof e == 'function' && F.createElement('div', { style: P }, e({ remainingTime: p, elapsedTime: d, color: m })),
+  );
 };
 W.displayName = 'CountdownCircleTimer';
 export { W as CountdownCircleTimer, $ as useCountdown };

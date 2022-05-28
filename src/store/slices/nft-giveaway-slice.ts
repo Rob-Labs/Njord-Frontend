@@ -18,17 +18,27 @@ interface EthersProps {
   provider: JsonRpcProvider;
 }
 
-export const fetchAll = createAsyncThunk<{ allWhitelisted: boolean[]; allTokenID: number[] }, EthersProps>('nft-giveaway/fetch-all', async ({ address, chainID, provider }) => {
-  const addresses = getAddresses(chainID);
-  const nftAddresses = [addresses.NFTS.SAFE_HAND, addresses.NFTS.FURRY_HAND, addresses.NFTS.STONE_HAND, addresses.NFTS.DIAMOND_HAND];
-  const nftContracts = nftAddresses.map(e => new ethers.Contract(e, OtterPAW, provider.getSigner()));
-  const allWhitelisted = await Promise.all(nftContracts.map(async e => (await e.whitelist(address)) as boolean));
-  const allTokenID = await Promise.all(nftContracts.map(async e => ((await e.claimed(address)) as BigNumber).toNumber()));
-  return {
-    allWhitelisted,
-    allTokenID,
-  };
-});
+export const fetchAll = createAsyncThunk<{ allWhitelisted: boolean[]; allTokenID: number[] }, EthersProps>(
+  'nft-giveaway/fetch-all',
+  async ({ address, chainID, provider }) => {
+    const addresses = getAddresses(chainID);
+    const nftAddresses = [
+      addresses.NFTS.SAFE_HAND,
+      addresses.NFTS.FURRY_HAND,
+      addresses.NFTS.STONE_HAND,
+      addresses.NFTS.DIAMOND_HAND,
+    ];
+    const nftContracts = nftAddresses.map(e => new ethers.Contract(e, OtterPAW, provider.getSigner()));
+    const allWhitelisted = await Promise.all(nftContracts.map(async e => (await e.whitelist(address)) as boolean));
+    const allTokenID = await Promise.all(
+      nftContracts.map(async e => ((await e.claimed(address)) as BigNumber).toNumber()),
+    );
+    return {
+      allWhitelisted,
+      allTokenID,
+    };
+  },
+);
 
 interface ClaimProps extends EthersProps {
   // 0: safe-hand
@@ -38,24 +48,32 @@ interface ClaimProps extends EthersProps {
   nft: number;
 }
 
-export const claim = createAsyncThunk<void, ClaimProps>(`nft-giveaway/claim`, async ({ address, chainID, provider, nft }, { dispatch }) => {
-  const addresses = getAddresses(chainID);
-  const nftAddresses = [addresses.NFTS.SAFE_HAND, addresses.NFTS.FURRY_HAND, addresses.NFTS.STONE_HAND, addresses.NFTS.DIAMOND_HAND];
-  const pawContract = new ethers.Contract(nftAddresses[nft], OtterPAW, provider.getSigner());
-  const transfered = () =>
-    new Promise<void>(resolve => {
-      const event = pawContract.filters.Transfer(null, address);
-      const action = () => {
-        pawContract.off(event, action);
-        resolve();
-      };
-      pawContract.on(event, action);
-    });
+export const claim = createAsyncThunk<void, ClaimProps>(
+  `nft-giveaway/claim`,
+  async ({ address, chainID, provider, nft }, { dispatch }) => {
+    const addresses = getAddresses(chainID);
+    const nftAddresses = [
+      addresses.NFTS.SAFE_HAND,
+      addresses.NFTS.FURRY_HAND,
+      addresses.NFTS.STONE_HAND,
+      addresses.NFTS.DIAMOND_HAND,
+    ];
+    const pawContract = new ethers.Contract(nftAddresses[nft], OtterPAW, provider.getSigner());
+    const transfered = () =>
+      new Promise<void>(resolve => {
+        const event = pawContract.filters.Transfer(null, address);
+        const action = () => {
+          pawContract.off(event, action);
+          resolve();
+        };
+        pawContract.on(event, action);
+      });
 
-  await pawContract.claim();
-  await transfered();
-  dispatch(fetchAll({ address, chainID, provider }));
-});
+    await pawContract.claim();
+    await transfered();
+    dispatch(fetchAll({ address, chainID, provider }));
+  },
+);
 
 const initialState: NFTGiveawayState[] = Array(4).fill({
   claimed: false,

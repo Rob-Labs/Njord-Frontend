@@ -1,6 +1,18 @@
 import { getAddresses } from '.';
 
-export type BondKey = 'frax' | 'frax2' | 'frax_clam' | 'mai' | 'mai44' | 'matic' | 'matic_clam' | 'mai_clam44' | 'mai_clam' | 'mai-v1' | 'mai_clam_v2-v1' | 'mai_clam-v1';
+export type BondKey =
+  | 'frax'
+  | 'frax2'
+  | 'frax_clam'
+  | 'mai'
+  | 'mai44'
+  | 'matic'
+  | 'matic_clam'
+  | 'mai_clam44'
+  | 'mai_clam'
+  | 'mai-v1'
+  | 'mai_clam_v2-v1'
+  | 'mai_clam-v1';
 
 export const BondKeys: BondKey[] = [
   // 'frax',
@@ -102,7 +114,8 @@ export function listBonds(chainId: number): BondMap {
       reserve: '0x1f847e05afaf47ec54626928d0e6c235663e938f',
       reserveUnit: 'LP',
       type: 'lp',
-      dexUrl: 'https://app.sushi.com/add/0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89/0xC250e9987A032ACAC293d838726C511E6E1C029d',
+      dexUrl:
+        'https://app.sushi.com/add/0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89/0xC250e9987A032ACAC293d838726C511E6E1C029d',
       deprecated: false,
       autostake: true,
       stable: true,

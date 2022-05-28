@@ -1,4 +1,17 @@
-import { Box, FormControl, Grid, InputAdornment, InputLabel, makeStyles, OutlinedInput, Paper, Tab, Tabs, TabsActions, Zoom } from '@material-ui/core';
+import {
+  Box,
+  FormControl,
+  Grid,
+  InputAdornment,
+  InputLabel,
+  makeStyles,
+  OutlinedInput,
+  Paper,
+  Tab,
+  Tabs,
+  TabsActions,
+  Zoom,
+} from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -98,7 +111,15 @@ function Stake() {
       alert('Please enter a value!');
     } else {
       setAction(action);
-      let stakeTx: any = await dispatch(changeStake({ address, action, value: String(quantity), provider, networkID: chainID }));
+      let stakeTx: any = await dispatch(
+        changeStake({
+          address,
+          action,
+          value: String(quantity),
+          provider,
+          networkID: chainID,
+        }),
+      );
       if (stakeTx.payload == true) {
         handleOpenDialog();
       }
@@ -124,7 +145,10 @@ function Stake() {
 
   const trimmedSClamBalance = trim(Number(sClamBalance), 4);
   const stakingRebasePercentage = trim(stakingRebase * 100, 4);
-  const nextRewardValue = trim((Number(stakingRebasePercentage) / 100) * (Number(trimmedSClamBalance) + Number(warmupBalance)), 4);
+  const nextRewardValue = trim(
+    (Number(stakingRebasePercentage) / 100) * (Number(trimmedSClamBalance) + Number(warmupBalance)),
+    4,
+  );
 
   useEffect(() => {
     if (tabsActions.current) {
@@ -178,22 +202,34 @@ function Stake() {
 
               <div className="data-row">
                 <p className="data-row-name">Next Reward Amount</p>
-                <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} NJORD</>}</p>
+                <p className="data-row-value">
+                  {isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} NJORD</>}
+                </p>
               </div>
 
               <div className="data-row">
                 <p className="data-row-name">Next Reward Amount USD</p>
-                <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{formatCurrency(Number(nextRewardValue) * marketPrice, 2)}</>}</p>
+                <p className="data-row-value">
+                  {isAppLoading ? (
+                    <Skeleton width="80px" />
+                  ) : (
+                    <>{formatCurrency(Number(nextRewardValue) * marketPrice, 2)}</>
+                  )}
+                </p>
               </div>
 
               <div className="data-row">
                 <p className="data-row-name">{t('stake.nextRewardYield')}</p>
-                <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{stakingRebasePercentage}%</>}</p>
+                <p className="data-row-value">
+                  {isAppLoading ? <Skeleton width="80px" /> : <>{stakingRebasePercentage}%</>}
+                </p>
               </div>
 
               <div className="data-row">
                 <p className="data-row-name">{t('stake.roiFiveDay')}</p>
-                <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(fiveDayRate) * 100, 4)}%</>}</p>
+                <p className="data-row-value">
+                  {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(fiveDayRate) * 100, 4)}%</>}
+                </p>
               </div>
             </div>
           </div>

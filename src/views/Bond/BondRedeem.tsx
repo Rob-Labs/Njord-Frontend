@@ -73,7 +73,9 @@ function BondRedeem({ bondKey }: IBondRedeem) {
     return state.bonding[bondKey] && state.bonding[bondKey].bondDiscount;
   });
 
-  const debtRatio = useSelector<IReduxState, number>(state => state.bonding[bondKey] && state.bonding[bondKey].debtRatio);
+  const debtRatio = useSelector<IReduxState, number>(
+    state => state.bonding[bondKey] && state.bonding[bondKey].debtRatio,
+  );
 
   return (
     <Box display="flex" flexDirection="column">
@@ -112,36 +114,55 @@ function BondRedeem({ bondKey }: IBondRedeem) {
           ></ActionButton>
         )}
       </Box>
-      <BondRedeemDialog open={open} handleClose={handleCloseDialog} pendingPayout={trim(pendingPayout, 4)} balance={trim(sClamBalance, 4)} />
+      <BondRedeemDialog
+        open={open}
+        handleClose={handleCloseDialog}
+        pendingPayout={trim(pendingPayout, 4)}
+        balance={trim(sClamBalance, 4)}
+      />
       <Slide direction="right" in={true} mountOnEnter unmountOnExit {...{ timeout: 533 }}>
         <Box className="bond-data">
           <div className="data-row">
             <p className="bond-balance-title">{t('bonds.redeem.pendingRewards')}</p>
             <p className="price-data bond-balance-value">
-              {isBondLoading ? <Skeleton width="100px" /> : bond.autostake ? `${trim(interestDue, 4)} sNJORD` : `${trim(interestDue, 4)} NJORD`}
+              {isBondLoading ? (
+                <Skeleton width="100px" />
+              ) : bond.autostake ? (
+                `${trim(interestDue, 4)} sNJORD`
+              ) : (
+                `${trim(interestDue, 4)} NJORD`
+              )}
             </p>
           </div>
           {!bond.autostake && (
             <div className="data-row">
               <p className="bond-balance-title">{t('bonds.redeem.claimableRewards')}</p>
-              <p className="price-data bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : `${trim(pendingPayout, 4)} NJORD`}</p>
+              <p className="price-data bond-balance-value">
+                {isBondLoading ? <Skeleton width="100px" /> : `${trim(pendingPayout, 4)} NJORD`}
+              </p>
             </div>
           )}
           <div className="data-row">
             <p className="bond-balance-title">{t('bonds.redeem.timeUntilFullyVested')}</p>
-            <p className="price-data bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : vestingTime()}</p>
+            <p className="price-data bond-balance-value">
+              {isBondLoading ? <Skeleton width="100px" /> : vestingTime()}
+            </p>
           </div>
 
           {!bond.deprecated && (
             <div className="data-row">
               <p className="bond-balance-title">{t('common.roi')}</p>
-              <p className="bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : `${trim(bondDiscount * 100, 2)}%`}</p>
+              <p className="bond-balance-value">
+                {isBondLoading ? <Skeleton width="100px" /> : `${trim(bondDiscount * 100, 2)}%`}
+              </p>
             </div>
           )}
 
           <div className="data-row">
             <p className="bond-balance-title">{t('bonds.debtRatio')}</p>
-            <p className="bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : `${trim(debtRatio / 10000000, 2)}%`}</p>
+            <p className="bond-balance-value">
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(debtRatio / 10000000, 2)}%`}
+            </p>
           </div>
 
           <div className="data-row">

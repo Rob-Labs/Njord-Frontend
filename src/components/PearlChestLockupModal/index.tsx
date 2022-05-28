@@ -1,5 +1,16 @@
 import { parseEther } from '@ethersproject/units';
-import { Divider, FormControl, InputAdornment, InputLabel, makeStyles, OutlinedInput, Paper, SvgIcon, Typography, useTheme } from '@material-ui/core';
+import {
+  Divider,
+  FormControl,
+  InputAdornment,
+  InputLabel,
+  makeStyles,
+  OutlinedInput,
+  Paper,
+  SvgIcon,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
 import addDays from 'date-fns/addDays';
 import formatDate from 'date-fns/format';
 import { BigNumber } from 'ethers';
@@ -17,7 +28,10 @@ import { useWeb3Context } from '../../hooks';
 import ActionButton from '../Button/ActionButton';
 import './styles.scss';
 
-const percentageFormatter = Intl.NumberFormat('en', { style: 'percent', minimumFractionDigits: 2 });
+const percentageFormatter = Intl.NumberFormat('en', {
+  style: 'percent',
+  minimumFractionDigits: 2,
+});
 const pearlFormatter = Intl.NumberFormat('en', { maximumFractionDigits: 4 });
 
 const useStyles = makeStyles(theme => ({
@@ -46,7 +60,13 @@ export interface PearlChestLockupModalProps {
   onSuccess: (result: any) => void;
 }
 
-export default function PearlChestLockupModal({ open = false, term, discount, onClose, onSuccess }: PearlChestLockupModalProps) {
+export default function PearlChestLockupModal({
+  open = false,
+  term,
+  discount,
+  onClose,
+  onSuccess,
+}: PearlChestLockupModalProps) {
   const { t } = useTranslation();
   const theme = useTheme();
   const styles = useStyles();
@@ -63,7 +83,15 @@ export default function PearlChestLockupModal({ open = false, term, discount, on
   const nextRewardValue = pearlFormatter.format(Number(amount) * (term?.rewardRate ?? 0));
 
   const lockup = useCallback(async () => {
-    const result: any = await dispatch(lockAction({ chainID, provider, address, noteAddress: noteAddress!, amount }));
+    const result: any = await dispatch(
+      lockAction({
+        chainID,
+        provider,
+        address,
+        noteAddress: noteAddress!,
+        amount,
+      }),
+    );
     if (result.payload) {
       onSuccess(result.payload);
     }
@@ -81,7 +109,9 @@ export default function PearlChestLockupModal({ open = false, term, discount, on
           <Typography className="lockup-modal__summary-title">{term?.note.name}</Typography>
           <div className="lockup-modal__summary-period-wrapper">
             <Typography className="lockup-modal__summary-period">{term?.lockPeriod}-Day Lock-up Period</Typography>
-            <Typography variant="caption">Due date: {formatDate(addDays(new Date(), Number(term?.lockPeriod ?? 1)), 'MMM dd, yyyy')}</Typography>
+            <Typography variant="caption">
+              Due date: {formatDate(addDays(new Date(), Number(term?.lockPeriod ?? 1)), 'MMM dd, yyyy')}
+            </Typography>
           </div>
           <Divider className="lockup-modal__summary-div" />
           <Typography variant="caption" className="lockup-modal__reward-label">
@@ -151,14 +181,16 @@ export default function PearlChestLockupModal({ open = false, term, discount, on
           </div>
 
           <Typography variant="caption" className="lockup-modal__approve-caption">
-            Note: Your first interaction with FJORD Chests includes an “Approve” transaction followed by a “Lock up” transaction. Subsequent lockups will only require the “Lock Up”
-            transaction.
+            Note: Your first interaction with FJORD Chests includes an “Approve” transaction followed by a “Lock up”
+            transaction. Subsequent lockups will only require the “Lock Up” transaction.
           </Typography>
 
           <div className="lockup-modal__account-details">
             <div className="lockup-modal__account-detail">
               <Typography className="lockup-modal__account-detail-label">Your Balance</Typography>
-              <Typography className="lockup-modal__account-detail-value">{trim(account?.balances?.pearl ?? 0, 4)} FJORD</Typography>
+              <Typography className="lockup-modal__account-detail-value">
+                {trim(account?.balances?.pearl ?? 0, 4)} FJORD
+              </Typography>
             </div>
             <div className="lockup-modal__account-detail">
               <Typography className="lockup-modal__account-detail-label">Expected Next Reward</Typography>
@@ -176,7 +208,8 @@ export default function PearlChestLockupModal({ open = false, term, discount, on
             <div className="lockup-modal__account-detail">
               <Typography className="lockup-modal__account-detail-label">Expected Next Reward Yield</Typography>
               <Typography className="lockup-modal__account-detail-value">
-                {percentageFormatter.format(term?.rewardRate ?? 0)} + Staking {percentageFormatter.format(stakingRebase)}
+                {percentageFormatter.format(term?.rewardRate ?? 0)} + Staking{' '}
+                {percentageFormatter.format(stakingRebase)}
               </Typography>
             </div>
           </div>
@@ -199,8 +232,12 @@ function NoteCard({ term, discount, qualified }: { term: ITerm; discount: number
         </Typography>
         {discount !== 0 && (
           <>
-            <Typography className="lockup-modal__card-discount">Use this note to receive a {discount}% discount on any (4,4) bond.</Typography>
-            <Typography className="lockup-modal__card-requirement">(Minimum {term.minLockAmount} FJORD lockup required to get this note)</Typography>
+            <Typography className="lockup-modal__card-discount">
+              Use this note to receive a {discount}% discount on any (4,4) bond.
+            </Typography>
+            <Typography className="lockup-modal__card-requirement">
+              (Minimum {term.minLockAmount} FJORD lockup required to get this note)
+            </Typography>
           </>
         )}
         {discount === 0 && <Typography className="lockup-modal__no-discount">No extra note bonus</Typography>}

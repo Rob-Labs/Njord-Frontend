@@ -2,7 +2,10 @@ import { BigNumber, ethers } from 'ethers';
 import { getAddresses } from '../constants';
 import { ModoLPToken } from '../abi';
 
-export async function getMarketPrice(networkID: number, provider: ethers.Signer | ethers.providers.Provider): Promise<BigNumber> {
+export async function getMarketPrice(
+  networkID: number,
+  provider: ethers.Signer | ethers.providers.Provider,
+): Promise<BigNumber> {
   const address = getAddresses(networkID);
   const pairContract = new ethers.Contract(address.RESERVES.BNB_NJORD, ModoLPToken, provider);
   const reserves = await pairContract.getReserves();

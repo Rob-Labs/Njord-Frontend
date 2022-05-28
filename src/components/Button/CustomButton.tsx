@@ -31,8 +31,15 @@ const STYLE: Record<ButtonType, ButtonConfig> = {
     color: 'text.primary',
   },
 };
-const ICON_BASE_STYLE: CSSProperties = { width: '20px', height: '20px', verticalAlign: 'middle' };
-const ICON_SPACING: CSSProperties = { marginRight: '10px', marginLeft: '-10px' };
+const ICON_BASE_STYLE: CSSProperties = {
+  width: '20px',
+  height: '20px',
+  verticalAlign: 'middle',
+};
+const ICON_SPACING: CSSProperties = {
+  marginRight: '10px',
+  marginLeft: '-10px',
+};
 
 const CustomButton = forwardRef<any, Props>(
   ({ type = 'solid', className = '', component, text, icon, ...props }, ref) => {

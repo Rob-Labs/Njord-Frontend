@@ -107,7 +107,9 @@ function BondPurchase({ bondKey, slippage }: IBondPurchaseProps) {
     } else if (isNaN(quantity)) {
       alert(t('bonds.purchase.invalidValue'));
     } else if (interestDue > 0 || pendingPayout > 0) {
-      const shouldProceed = window.confirm(bond.autostake ? t('bonds.purchase.resetVestingAutostake') : t('bonds.purchase.resetVesting'));
+      const shouldProceed = window.confirm(
+        bond.autostake ? t('bonds.purchase.resetVestingAutostake') : t('bonds.purchase.resetVesting'),
+      );
       if (shouldProceed) {
         let bondTx: any = await dispatch(
           bondAsset({
@@ -150,7 +152,16 @@ function BondPurchase({ bondKey, slippage }: IBondPurchaseProps) {
   const fiveDayRate = useSelector<IReduxState, number>(state => state.app.fiveDayRate);
 
   async function loadBondDetails() {
-    if (provider) await dispatch(calcBondDetails({ bondKey, value: quantity, provider, networkID: chainID, userBalance: rawBalance }));
+    if (provider)
+      await dispatch(
+        calcBondDetails({
+          bondKey,
+          value: quantity,
+          provider,
+          networkID: chainID,
+          userBalance: rawBalance,
+        }),
+      );
   }
 
   useEffect(() => {
@@ -187,7 +198,13 @@ function BondPurchase({ bondKey, slippage }: IBondPurchaseProps) {
           />
         </FormControl>
         {hasAllowance() ? (
-          <ActionButton pendingTransactions={pendingTransactions} type={'bond_' + bond.key} start="Bond" progress="Bonding..." processTx={() => onBond()}></ActionButton>
+          <ActionButton
+            pendingTransactions={pendingTransactions}
+            type={'bond_' + bond.key}
+            start="Bond"
+            progress="Bonding..."
+            processTx={() => onBond()}
+          ></ActionButton>
         ) : (
           <ActionButton
             pendingTransactions={pendingTransactions}
@@ -225,17 +242,23 @@ function BondPurchase({ bondKey, slippage }: IBondPurchaseProps) {
         <Box className="bond-data">
           <div className="data-row">
             <p className="bond-balance-title">{t('common.yourBalance')}</p>
-            <p className="bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : <>{`${trim(balance, 4)} ${bond.reserveUnit}`}</>}</p>
+            <p className="bond-balance-value">
+              {isBondLoading ? <Skeleton width="100px" /> : <>{`${trim(balance, 4)} ${bond.reserveUnit}`}</>}
+            </p>
           </div>
 
           <div className={`data-row`}>
             <p className="bond-balance-title">{t('bonds.purchase.youWillGet')}</p>
-            <p className="price-data bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : `${trim(bondQuote, 4) || '0'} ${bondUnit}`}</p>
+            <p className="price-data bond-balance-value">
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bondQuote, 4) || '0'} ${bondUnit}`}
+            </p>
           </div>
 
           <div className={`data-row`}>
             <p className="bond-balance-title">{t('bonds.purchase.maxBuy')}</p>
-            <p className="price-data bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : `${trim(maxPayout, 4) || '0'} ${bondUnit}`}</p>
+            <p className="price-data bond-balance-value">
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(maxPayout, 4) || '0'} ${bondUnit}`}
+            </p>
           </div>
 
           <div className="data-row">
@@ -253,7 +276,9 @@ function BondPurchase({ bondKey, slippage }: IBondPurchaseProps) {
 
           <div className="data-row">
             <p className="bond-balance-title">{t('bonds.debtRatio')}</p>
-            <p className="bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : `${trim(debtRatio / 10000000, 2)}%`}</p>
+            <p className="bond-balance-value">
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(debtRatio / 10000000, 2)}%`}
+            </p>
           </div>
 
           <div className="data-row">
@@ -264,7 +289,9 @@ function BondPurchase({ bondKey, slippage }: IBondPurchaseProps) {
           {recipientAddress !== address && (
             <div className="data-row">
               <p className="bond-balance-title">{t('bonds.recipient')}</p>
-              <p className="bond-balance-value">{isBondLoading ? <Skeleton width="100px" /> : shorten(recipientAddress)}</p>
+              <p className="bond-balance-value">
+                {isBondLoading ? <Skeleton width="100px" /> : shorten(recipientAddress)}
+              </p>
             </div>
           )}
         </Box>

@@ -1,4 +1,16 @@
-import { Typography, Box, Modal, Paper, SvgIcon, IconButton, FormControl, OutlinedInput, InputLabel, InputAdornment, makeStyles } from '@material-ui/core';
+import {
+  Typography,
+  Box,
+  Modal,
+  Paper,
+  SvgIcon,
+  IconButton,
+  FormControl,
+  OutlinedInput,
+  InputLabel,
+  InputAdornment,
+  makeStyles,
+} from '@material-ui/core';
 import { ReactComponent as XIcon } from '../../assets/icons/icon_close.svg';
 import './bondSettings.scss';
 import { useTranslation } from 'react-i18next';
@@ -33,7 +45,14 @@ interface IAdvancedSettingsProps {
   onSlippageChange: (e: any) => void;
 }
 
-function AdvancedSettings({ open, handleClose, slippage, recipientAddress, onRecipientAddressChange, onSlippageChange }: IAdvancedSettingsProps) {
+function AdvancedSettings({
+  open,
+  handleClose,
+  slippage,
+  recipientAddress,
+  onRecipientAddressChange,
+  onSlippageChange,
+}: IAdvancedSettingsProps) {
   const styles = useStyles();
   const { t } = useTranslation();
   return (
@@ -77,7 +96,13 @@ function AdvancedSettings({ open, handleClose, slippage, recipientAddress, onRec
             <p className="input-label">Recipient Address</p>
           </InputLabel>
           <FormControl variant="outlined" color="primary" fullWidth>
-            <OutlinedInput className="bond-input" id="recipient" value={recipientAddress} onChange={onRecipientAddressChange} type="text" />
+            <OutlinedInput
+              className="bond-input"
+              id="recipient"
+              value={recipientAddress}
+              onChange={onRecipientAddressChange}
+              type="text"
+            />
             <div className="help-text">
               <p className="text-bond-desc">{t('bonds.advancedSettings.recipientAddress')}</p>
             </div>

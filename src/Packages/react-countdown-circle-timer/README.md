@@ -28,7 +28,7 @@ yarn add react-countdown-circle-timer
 Check the [CodeSandbox](https://codesandbox.io/s/stoic-cache-e7cie?fontsize=14&hidenavigation=1&theme=dark) demo to get started.
 
 ```jsx
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 const UrgeWithPleasureComponent = () => (
   <CountdownCircleTimer
@@ -39,7 +39,7 @@ const UrgeWithPleasureComponent = () => (
   >
     {({ remainingTime }) => remainingTime}
   </CountdownCircleTimer>
-)
+);
 ```
 
 ### Hook
@@ -47,18 +47,13 @@ const UrgeWithPleasureComponent = () => (
 The package exports a hook `useCountdown`, which accepts the same props as the component and returns all props needed to render your own circle.
 
 ```jsx
-import { useCountdown } from 'react-countdown-circle-timer'
+import { useCountdown } from 'react-countdown-circle-timer';
 
-const {
-  path,
-  pathLength,
-  stroke,
-  strokeDashoffset,
-  remainingTime,
-  elapsedTime,
-  size,
-  strokeWidth,
-} = useCountdown({ isPlaying: true, duration: 7, colors: '#abc' })
+const { path, pathLength, stroke, strokeDashoffset, remainingTime, elapsedTime, size, strokeWidth } = useCountdown({
+  isPlaying: true,
+  duration: 7,
+  colors: '#abc',
+});
 ```
 
 ## Props
@@ -108,10 +103,10 @@ const UrgeWithPleasureComponent = () => (
     colors="#A30000"
     onComplete={() => {
       // do your stuff here
-      return { shouldRepeat: true, delay: 1.5 } // repeat animation in 1.5 seconds
+      return { shouldRepeat: true, delay: 1.5 }; // repeat animation in 1.5 seconds
     }}
   />
-)
+);
 ```
 
 ### Set the initial remaining time different then the duration provided
@@ -120,13 +115,8 @@ Pass the remaining time to `initialRemainingTime` prop. Example:
 
 ```jsx
 const UrgeWithPleasureComponent = () => (
-  <CountdownCircleTimer
-    isPlaying
-    duration={60}
-    initialRemainingTime={15}
-    colors="#A30000"
-  />
-)
+  <CountdownCircleTimer isPlaying duration={60} initialRemainingTime={15} colors="#A30000" />
+);
 ```
 
 In the example above, the countdown will start at 15 seconds (one quarter before it's done) and it will animate for 15 seconds until reaches 0.
@@ -139,23 +129,23 @@ In the example above, the countdown will start at 15 seconds (one quarter before
 
 ```js
 const children = ({ remainingTime }) => {
-  const minutes = Math.floor(remainingTime / 60)
-  const seconds = remainingTime % 60
+  const minutes = Math.floor(remainingTime / 60);
+  const seconds = remainingTime % 60;
 
-  return `${minutes}:${seconds}`
-}
+  return `${minutes}:${seconds}`;
+};
 ```
 
 - Format `hh:mm:ss` (hours, minutes and seconds)
 
 ```js
 const children = ({ remainingTime }) => {
-  const hours = Math.floor(remainingTime / 3600)
-  const minutes = Math.floor((remainingTime % 3600) / 60)
-  const seconds = remainingTime % 60
+  const hours = Math.floor(remainingTime / 3600);
+  const minutes = Math.floor((remainingTime % 3600) / 60);
+  const seconds = remainingTime % 60;
 
-  return `${hours}:${minutes}:${seconds}`
-}
+  return `${hours}:${minutes}:${seconds}`;
+};
 ```
 
 ### Add `a11y` support
@@ -168,7 +158,7 @@ const children = ({ remainingTime }) => (
   <div role="timer" aria-live="assertive">
     {remainingTime} seconds
   </div>
-)
+);
 ```
 
 ### Add gradient

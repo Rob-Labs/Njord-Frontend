@@ -30,7 +30,10 @@ import getNoteImage from 'src/helpers/get-note-image';
 import AddPearlToNoteModal from '../AddPearlToNodeModal';
 
 const numberFormatter = Intl.NumberFormat('en', { maximumFractionDigits: 4 });
-const percentageFormatter = Intl.NumberFormat('en', { style: 'percent', minimumFractionDigits: 2 });
+const percentageFormatter = Intl.NumberFormat('en', {
+  style: 'percent',
+  minimumFractionDigits: 2,
+});
 
 const extraBonus: { [k: number]: number } = {
   28: 5,
@@ -120,12 +123,26 @@ export default function PearlChestsRedeem() {
         onClose={clearSelectedTerm}
         onSuccess={handleRelockSuccessEvent}
       />
-      <PearlChestLockupSuccessModal open={Boolean(relockResult)} actionResult={relockResult} onClose={() => setRelockResult(undefined)} />
+      <PearlChestLockupSuccessModal
+        open={Boolean(relockResult)}
+        actionResult={relockResult}
+        onClose={() => setRelockResult(undefined)}
+      />
     </Paper>
   );
 }
 
-function NoteCard({ note, term, lockNote, addPearlToNote }: { note: Note; term: ITerm; lockNote: ILockNote; addPearlToNote: (term: ITerm, lockNote: ILockNote) => void }) {
+function NoteCard({
+  note,
+  term,
+  lockNote,
+  addPearlToNote,
+}: {
+  note: Note;
+  term: ITerm;
+  lockNote: ILockNote;
+  addPearlToNote: (term: ITerm, lockNote: ILockNote) => void;
+}) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { provider, address, chainID } = useWeb3Context();
@@ -138,7 +155,10 @@ function NoteCard({ note, term, lockNote, addPearlToNote }: { note: Note; term: 
       after: <span className="note__pearl-icon">{getTokenImage('pearl', 20)}</span>,
       value: numberFormatter.format(lockNote.amount),
     },
-    { label: 'pearlChests.currentReward', value: numberFormatter.format(lockNote.reward) + ' FJORD' },
+    {
+      label: 'pearlChests.currentReward',
+      value: numberFormatter.format(lockNote.reward) + ' FJORD',
+    },
     {
       label: 'pearlChests.nextReward',
       value: numberFormatter.format(lockNote.nextReward) + ' FJORD',
@@ -149,7 +169,10 @@ function NoteCard({ note, term, lockNote, addPearlToNote }: { note: Note; term: 
       value: percentageFormatter.format(lockNote.rewardRate),
     },
     // { label: 'pearlChests.lockedValue', value: numberFormatter.format(note.lockedValue) + ' FJORD' },
-    { label: 'pearlChests.marketValue', value: formatCurrency(note.marketValue) },
+    {
+      label: 'pearlChests.marketValue',
+      value: formatCurrency(note.marketValue),
+    },
     {
       label: 'pearlChests.lockupPeriod',
       value: note.lockupPeriod,
@@ -238,7 +261,9 @@ function NoteCard({ note, term, lockNote, addPearlToNote }: { note: Note; term: 
               <ActionButton
                 pendingTransactions={pendingTransactions}
                 type={'relock_' + term.noteAddress + '_' + lockNote.tokenId}
-                start={t('pearlChests.claimRewardAndRelock', { amount: numberFormatter.format(lockNote.reward) })}
+                start={t('pearlChests.claimRewardAndRelock', {
+                  amount: numberFormatter.format(lockNote.reward),
+                })}
                 progress="Processing..."
                 processTx={claimAndLock}
                 wrapper={({ onClick, text }) => <CustomButton className="note__action" text={text} onClick={onClick} />}
@@ -250,7 +275,9 @@ function NoteCard({ note, term, lockNote, addPearlToNote }: { note: Note; term: 
               start={t('pearlChests.claimReward')}
               progress="Processing..."
               processTx={claimReward}
-              wrapper={({ onClick, text }) => <CustomButton className="note__action" type="outline" text={text} onClick={onClick} />}
+              wrapper={({ onClick, text }) => (
+                <CustomButton className="note__action" type="outline" text={text} onClick={onClick} />
+              )}
             />
           </>
         )}

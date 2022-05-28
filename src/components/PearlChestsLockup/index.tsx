@@ -47,7 +47,11 @@ export default function PearlChestsLockup() {
         discount={extraBonus[otterLake.selectedTerm?.lockPeriod ?? 0] ?? 0}
         term={otterLake.selectedTerm}
       />
-      <PearlChestLockupSuccessModal open={Boolean(lockupResult)} onClose={() => setLockupResult(undefined)} actionResult={lockupResult} />
+      <PearlChestLockupSuccessModal
+        open={Boolean(lockupResult)}
+        onClose={() => setLockupResult(undefined)}
+        actionResult={lockupResult}
+      />
     </div>
   );
 }
@@ -126,7 +130,9 @@ function LockupOption({ term, onSelect }: { term: ITerm; onSelect: (settings: IT
           {extraBonus[term.lockPeriod] && (
             <>
               <Typography className="lockup-option__bonus-title" component="span">
-                {t('pearlChests.lockUp.bonusTitle', { percentage: extraBonus[term.lockPeriod] })}
+                {t('pearlChests.lockUp.bonusTitle', {
+                  percentage: extraBonus[term.lockPeriod],
+                })}
               </Typography>
               <Typography className="lockup-option__bonus-desc" variant="caption" component="span">
                 {t('pearlChests.lockUp.bonusDescription')}

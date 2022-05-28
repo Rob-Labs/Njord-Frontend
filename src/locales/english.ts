@@ -76,7 +76,8 @@ const English = {
         holder: 'Holders, represents the total number of otters (NJORD holders)',
         staked: 'NJORD Staked, is the ratio of NJORD to NJORD (staked vs unstaked)',
         apy: 'Annual Percentage Yield, is the normalized representation of an interest rate, based on a compounding period over one year. Note that APYs provided are rather ballpark level indicators and not so much precise future results.',
-        runway: 'Runway, is the number of days NJORD emissions can be sustained at a given rate. Lower APY = longer runway',
+        runway:
+          'Runway, is the number of days NJORD emissions can be sustained at a given rate. Lower APY = longer runway',
         currentIndex:
           'The current index tracks the amount of NJORD accumulated since the beginning of staking. Basically, how much NJORD one would have if they staked and held a single NJORD from day 1.',
       },
@@ -100,13 +101,15 @@ const English = {
       purchase: {
         noValue: 'Please enter a value!',
         invalidValue: 'Please enter a valid value!',
-        resetVestingAutostake: 'You have an existing bond. Bonding will reset your vesting period. Do you still want to process?',
+        resetVestingAutostake:
+          'You have an existing bond. Bonding will reset your vesting period. Do you still want to process?',
         resetVesting:
           'You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?',
 
         fourFourInfo:
           'Note: The (4, 4) bond will stake all NJORDs at the start, so you will earn all rebase rewards during the vesting term. Once fully vested, you will only be able to claim sClam.',
-        approvalInfo: 'Note: The "Approve" transaction is only needed when bonding for the first time; subsequent bonding only requires you to perform the "Bond" transaction.',
+        approvalInfo:
+          'Note: The "Approve" transaction is only needed when bonding for the first time; subsequent bonding only requires you to perform the "Bond" transaction.',
         roiFourFourInfo: '* The ROI of (4,4) bond includes 5-days staking reward',
 
         youWillGet: 'You Will Get ',
@@ -140,10 +143,12 @@ const English = {
         howModoFinanceWorks: 'How ModoFinance Works',
         treasuryRevenue: 'Treasury Revenue',
         bondsLPFees: 'Bonds & LP fees',
-        bondSales: "Bond sales and LP Fees increase Otter's Treasury Revenue and lock in liquidity and help control NJORD supply",
+        bondSales:
+          "Bond sales and LP Fees increase Otter's Treasury Revenue and lock in liquidity and help control NJORD supply",
         treasuryGrowth: 'Treasury Growth',
         otterTreasury: "Otter's Treasury",
-        treasuryInflow: "Treasury inflow is used to increase Otter's Treasury Balance and back outstanding NJORD tokens and regulate staking APY",
+        treasuryInflow:
+          "Treasury inflow is used to increase Otter's Treasury Balance and back outstanding NJORD tokens and regulate staking APY",
         stakingRewards: 'Staking Rewards',
         clamToken: 'NJORD Token',
         compounds: 'Compounds yields automatically through a treasury backed memecoin with intrinsic value',
@@ -170,7 +175,8 @@ const English = {
     wrap: {
       wrapsClam: 'Wrap NJORD',
       connectWalletDescription: 'Connect your wallet to wrap your NJORD!',
-      approvalInfo: 'Note: The "Approve" transaction is only needed when wrapping for the first time; subsequent minting only requires you to perform the "Wrap" transaction.',
+      approvalInfo:
+        'Note: The "Approve" transaction is only needed when wrapping for the first time; subsequent minting only requires you to perform the "Wrap" transaction.',
       description:
         'FJORD is an index-adjusted wrapper for NJORD. Some people may find this useful for cross-blockchain purposes. Unlike your NJORD balance, your FJORD balance will not increase over time. When FJORD is unwrapped, you receive NJORD based on the latest (ever-increasing) index, so the total yield is the same.',
       stakedBalance: 'Your Balance (Staked)',
@@ -212,10 +218,13 @@ const English = {
     nft: {
       which: 'Which ',
       willYouGet: ' will you get?',
-      safehandDescription: 'Awarded to every Otter who has staked for a minimum of 2 weeks with greater than 4 NJORD on the drop date.',
-      furryhandDescription: 'Awarded to every Otter who has staked for a minimum of 2 weeks with more than 40 NJORD on the drop date',
+      safehandDescription:
+        'Awarded to every Otter who has staked for a minimum of 2 weeks with greater than 4 NJORD on the drop date.',
+      furryhandDescription:
+        'Awarded to every Otter who has staked for a minimum of 2 weeks with more than 40 NJORD on the drop date',
       stonehandDescription: 'Awarded to wallets with over 56 NJORD that have staked from 11/9 to drop date.',
-      diamondhandDescription: 'Awarded for staking the full amount of NJORD from IDO or launch date (11/3, with a minimum of 20 NJORD) to drop date',
+      diamondhandDescription:
+        'Awarded for staking the full amount of NJORD from IDO or launch date (11/3, with a minimum of 20 NJORD) to drop date',
       giveawayParty: 'Giveaway Party',
       giveawayPartyHeld: 'giveaway party will be held on',
       airdropCountdown: 'Airdrop Countdown',

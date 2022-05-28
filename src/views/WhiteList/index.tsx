@@ -28,7 +28,13 @@ export default function WhiteList() {
 
   useEffect(() => {
     if (connected) {
-      dispatch(checkIDOWhiteList({ walletAddress: address, provider, networkID: chainID }));
+      dispatch(
+        checkIDOWhiteList({
+          walletAddress: address,
+          provider,
+          networkID: chainID,
+        }),
+      );
     }
   }, [connected, provider]);
 

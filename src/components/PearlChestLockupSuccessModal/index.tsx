@@ -18,10 +18,16 @@ export interface PearlChestLockupSuccessModalProps {
   onClose: () => void;
 }
 
-export default function PearlChestLockupSuccessModal({ open, actionResult, onClose }: PearlChestLockupSuccessModalProps) {
+export default function PearlChestLockupSuccessModal({
+  open,
+  actionResult,
+  onClose,
+}: PearlChestLockupSuccessModalProps) {
   const terms = useSelector(state => state.lake.terms);
   const allTerms = useMemo(() => terms.flatMap(t => [t, t.fallbackTerm || t]), [terms]);
-  const note = useSelector(state => state.lake.lockNotes.find(p => p.noteAddress === actionResult?.note && p.tokenId === actionResult?.tokenId));
+  const note = useSelector(state =>
+    state.lake.lockNotes.find(p => p.noteAddress === actionResult?.note && p.tokenId === actionResult?.tokenId),
+  );
   const term = allTerms.find(term => term.noteAddress === actionResult?.note);
 
   if (!actionResult || !term) return <></>;
@@ -32,7 +38,11 @@ export default function PearlChestLockupSuccessModal({ open, actionResult, onClo
         <Typography variant="h1" component="span" className="lockup-success-modal__message">
           Your Chest lock-up was successful.
         </Typography>
-        {note ? <img className="lockup-success-modal__receipt" src={note.imageUrl || getNoteImage(term.note.name)} /> : <CircularProgress />}
+        {note ? (
+          <img className="lockup-success-modal__receipt" src={note.imageUrl || getNoteImage(term.note.name)} />
+        ) : (
+          <CircularProgress />
+        )}
         <Typography className="lockup-success-modal__message2">You got a {term.note.name}!</Typography>
         <Paper className="lockup-success-modal__details">
           <div className="lockup-success-modal__details-row">
@@ -45,7 +55,9 @@ export default function PearlChestLockupSuccessModal({ open, actionResult, onClo
           </div>
           <div className="lockup-success-modal__details-row">
             <Typography className="lockup-success-modal__label">Due Date</Typography>
-            <Typography className="lockup-success-modal__value">{formateDate(addDays(new Date(), term.lockPeriod), 'MMM dd, yyyy HH:mm a (O)')}</Typography>
+            <Typography className="lockup-success-modal__value">
+              {formateDate(addDays(new Date(), term.lockPeriod), 'MMM dd, yyyy HH:mm a (O)')}
+            </Typography>
           </div>
         </Paper>
       </>

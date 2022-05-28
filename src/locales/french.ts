@@ -61,7 +61,8 @@ const French = {
         holder: 'Détenteurs, ce nombre représente le nombre total de loutres (détenteurs de sNJORD)',
         staked: 'NJORD Staked, est le ratio entre un sNJORD et un NJORD (staked VS non staked)',
         apy: "Annual Percentage Yield ou Pourcentage de Rendement Annuel, est la représentation normalisée d'un taux d'intérét, basé sur une période de composition d'un an. Veuillez noter que les APYs affichés sont plutôt des indicateurs approximatifs et non des résultats guarantis.",
-        runway: "Runway, est le nombre de jours pendant lequel l'émission de sNJORD peut être soutenue à un taux donné. Plus l'APY est petit, plus long sera le Runway",
+        runway:
+          "Runway, est le nombre de jours pendant lequel l'émission de sNJORD peut être soutenue à un taux donné. Plus l'APY est petit, plus long sera le Runway",
         currentIndex:
           "L'index courant présente le nombre de sNJORD accumulés depuis le début du staking. De façon simplifiée, c'est le nombre de sNJORD qu'un utilisateur aurait s'il avait staké un NJORD depuis le lancement du protocole.",
       },
@@ -94,7 +95,8 @@ const French = {
       myBond: 'Mes Bonds',
       advancedSettings: {
         txrevert: 'La Transaction peut être inversée si le prix change plus que le taux de slippage autorisé',
-        recipientAddress: "Veuillez sélectionner l'adresse du destinataire. Par défaut, il s'agit de l'adresse connectée actuellement",
+        recipientAddress:
+          "Veuillez sélectionner l'adresse du destinataire. Par défaut, il s'agit de l'adresse connectée actuellement",
       },
       purchase: {
         noValue: 'Veuillez indiquer une valeur!',
@@ -107,7 +109,8 @@ const French = {
           "Note: L'bond (4,4) va staker vos NJORDs dès le début, de façon à vous faire gagner les récompenses de staking tout au long de la période d'acquisition. Une vois complètement acquises, vous n'aurez qu'à réclamer vos sClam.",
         approvalInfo:
           'Note: La transaction "Approuver" est seulement nécessaire lors de la première acquisition d\'bonds; l\'achat d\'bonds subséquent ne nécessitera qu\'une unique transaction de "Bond".',
-        roiFourFourInfo: '* Le Retour sur Investissement des oblications (4,4) inclut les récompenses de staking sur 5 jours',
+        roiFourFourInfo:
+          '* Le Retour sur Investissement des oblications (4,4) inclut les récompenses de staking sur 5 jours',
 
         youWillGet: 'Vous Obtenez',
         maxBuy: 'Max que vous puissiez acheter',
@@ -137,14 +140,16 @@ const French = {
         howModoFinanceWorks: 'Comment fonctionne ModoFinance',
         treasuryRevenue: 'Revenus de la Trésorerie',
         bondsLPFees: "Frais d'bonds et de jetons LP",
-        bondSales: "La vente d'bonds et les frais liés aux jetons de liquidité permettent d'accroître la trésorerie, et permettent de contrôler la liquidité et l'offre des NJORDs",
+        bondSales:
+          "La vente d'bonds et les frais liés aux jetons de liquidité permettent d'accroître la trésorerie, et permettent de contrôler la liquidité et l'offre des NJORDs",
         treasuryGrowth: 'Croissance de la trésorerie',
         otterTreasury: 'Trésorerie des Loutres',
         treasuryInflow:
           "Les rentrées de trésorerie sont utilisées pour accroître la balance de trésorerie des Loutres, s'assurer de pouvoir supporter les jetons NJORDs, et réguler l'APY de staking.",
         stakingRewards: 'Récompenses de Staking',
         clamToken: 'jeton NJORD',
-        compounds: 'Compose les gains automatiquement via une memecoin dont la valeur intrinsèque est supportée par la trésorerie',
+        compounds:
+          'Compose les gains automatiquement via une memecoin dont la valeur intrinsèque est supportée par la trésorerie',
         treasuryBalance: 'Balance de la Trésorerie',
       },
     },

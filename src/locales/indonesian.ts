@@ -61,7 +61,8 @@ const BahasaIndonesia = {
         holder: 'Holder, mewakili angka total dari otter (pemegang sNJORD)',
         staked: 'NJORD Terkunci, adalah rasio sNJORD terhadap NJORD (staking vs non-staking)',
         apy: 'Annual Percentage Yield atau Persentase Imbal Hasil Tahunan, adalah perwakilan yang dinormalisasi dari suatu suku bunga, berdasarkan compounding dengan periode melebihi satu tahun. Mohon dicatat bahwa APY yang disediakan adalah indikator kecenderungan rata-rata dan bukan hasil mendatang yang pasti.',
-        runway: 'Runway, adalah sisa hari dimana pengeluaran sNJORD dapat dipertahankan pada tingkat tertentu. APY lebih rendah = runway lebih panjang',
+        runway:
+          'Runway, adalah sisa hari dimana pengeluaran sNJORD dapat dipertahankan pada tingkat tertentu. APY lebih rendah = runway lebih panjang',
         currentIndex:
           'Indeks terkini melacak jumlah sNJORD yang terakumulasi sejak awal dimulainya stacking. Sederhananya, berapa banyak sNJORD yang seseorang akan miliki jika mereka melakukan stacking dan memegang satu NJORD sejak hari pertama.',
       },
@@ -94,12 +95,14 @@ const BahasaIndonesia = {
       myBond: 'Bond Saya',
       advancedSettings: {
         txrevert: 'Transaksi dapat batal jike harga berubah lebih dari % slippage',
-        recipientAddress: 'Pilih alamat penerima. Secara bawaan, ini adalah alamat anda yang saat ini sedang tersambung',
+        recipientAddress:
+          'Pilih alamat penerima. Secara bawaan, ini adalah alamat anda yang saat ini sedang tersambung',
       },
       purchase: {
         noValue: 'Mohon masukkan nilai!',
         invalidValue: 'Mohon masukkan nilai yang benar!',
-        resetVestingAutostake: 'Anda sudah memiliki bond. Melakukan bonding akan memutar kembali periode vesting anda. Apakah anda masih ingin melanjutkan?',
+        resetVestingAutostake:
+          'Anda sudah memiliki bond. Melakukan bonding akan memutar kembali periode vesting anda. Apakah anda masih ingin melanjutkan?',
         resetVesting:
           'Anda sudah memiliki bond. Melakukan bonding akan memutar kembali periode vesting anda serta mengorbankan imbalan. Kami menyarankan untuk mengambil imbalan terlebih dahulu atau menggunakan wallet baru. Apakah anda masih ingin melanjutkan?',
 
@@ -137,13 +140,16 @@ const BahasaIndonesia = {
         howModoFinanceWorks: 'Bagaimana Cara Kerja ModoFinance',
         treasuryRevenue: 'Pemasukan Kas',
         bondsLPFees: 'Tarif Bond & LP',
-        bondSales: 'Penjualan Bond dan Tarif LP meningkatkan Pemasukan Kas Otter, mengunci likuiditas, dan membantu mengontrol suplai NJORD',
+        bondSales:
+          'Penjualan Bond dan Tarif LP meningkatkan Pemasukan Kas Otter, mengunci likuiditas, dan membantu mengontrol suplai NJORD',
         treasuryGrowth: 'Pertumbuhan Kas',
         otterTreasury: 'Kas Otter',
-        treasuryInflow: 'Arus masuk kas digunakan untuk menambah Saldo Kas Otter dan melindungi token NJORD serta mengatur APY staking',
+        treasuryInflow:
+          'Arus masuk kas digunakan untuk menambah Saldo Kas Otter dan melindungi token NJORD serta mengatur APY staking',
         stakingRewards: 'Imbalan Staking',
         clamToken: 'Token NJORD',
-        compounds: 'Compounding memberikan hasil secara otomatis melalui memecoin yang memiliki perlindungan kas dengan nilai intrinsik',
+        compounds:
+          'Compounding memberikan hasil secara otomatis melalui memecoin yang memiliki perlindungan kas dengan nilai intrinsik',
         treasuryBalance: 'Saldo Kas',
       },
     },
@@ -194,7 +200,8 @@ const BahasaIndonesia = {
         'Diberikan kepada setiap Otter yang sudah menjalani staking selama setidaknya 2 minggu dengan jumlah lebih dari 4 sNJORD pada saat tanggal pemberitahuan.',
       furryhandDescription:
         'Diberikan kepada setiap Otter yang sudah menjalani staking selama setidaknya 2 minggu dengan jumlah lebih dari 40 sNJORD pada saat tanggal pemberitahuan.',
-      stonehandDescription: 'Diberikan kepada pemegang Wallet yang memiliki lebih dari 56 sNJORD dan sudah menjalani staking dari 9 November 2021 hingga tanggal pemberitahuan.',
+      stonehandDescription:
+        'Diberikan kepada pemegang Wallet yang memiliki lebih dari 56 sNJORD dan sudah menjalani staking dari 9 November 2021 hingga tanggal pemberitahuan.',
       diamondhandDescription:
         'Diberikan karena telah menjalani staking dengan seluruh jumlah NJORD yang dimiliki sejak IDO maupun tanggal rilis (3 November 2021, dengan jumlah minimal 20 sNJORD) sampai pada tanggal pemberitahuan.',
     },

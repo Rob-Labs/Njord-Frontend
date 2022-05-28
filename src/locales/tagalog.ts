@@ -63,7 +63,8 @@ const Tagalog = {
         holder: 'Mga may hawak, kumakatawan sa lahat ng otters (mga may hawak ng sNJORD)',
         staked: 'naka-stake na clam, ay ang ratio ng sNJORD sa NJORD (staked vs unstaked)',
         apy: 'Porsyento ng Interes kada Taon, ay ang normal na representasyon ng antas ng interes, base sa panahon ng compounding sa isang taon. Tandaan na ang nakalagay na APYs tantiyadong pahiwatig lamang at hinding eksaktong resulta sa hinaharap.',
-        runway: 'Runway, bilang ng araw na mapanatili ang paggawa ng sNJORD sa inilaan na antas. mababang APY = mas mahabang runway',
+        runway:
+          'Runway, bilang ng araw na mapanatili ang paggawa ng sNJORD sa inilaan na antas. mababang APY = mas mahabang runway',
         currentIndex:
           'Sinusubaybayan ng kasalukuyang index ang halaga ng sNJORD na naipon simula ng umpisa ng pag-stake. Sa madaling salita, gaano karaming sNJORD ang mayroon ng isang tao kung nag-stake at hinawakan lamang ang isang NJORD simulang unang araw.',
       },
@@ -101,13 +102,15 @@ const Tagalog = {
       purchase: {
         noValue: 'Please enter a value!',
         invalidValue: 'Please enter a valid value!',
-        resetVestingAutostake: 'Mayroon ka pang bond. I-rereset ng bonding and iyong vesting period. Gusto mo pa rin ba iproseso?',
+        resetVestingAutostake:
+          'Mayroon ka pang bond. I-rereset ng bonding and iyong vesting period. Gusto mo pa rin ba iproseso?',
         resetVesting:
           'Mayroon ka pang bond. I-rereset ng bonding and iyong vesting period at mawawala ang rewards. Nirerekomenda namin na kunin muna ang rewards o gumamit ng panibagong pitaka. Gusto mo pa rin bang magpatuloy?',
 
         fourFourInfo:
           'Tandaan: Sa (4, 4) bond, naka-stake na lahat ng NJORDs sa simula, kaya makukuha mo lahat ng rebase rewards habang nasa vesting term. Kapag fully vested na, ma-cclaim mo na ang iyong sClam.',
-        approvalInfo: 'Tandaan: Ang "Aprub" transaksyon ay kailangan lamang sa unang beses na mag-bond; sa mga kasunod na bond, kailangan nalang isagawa ang "Bond" transaksyon.',
+        approvalInfo:
+          'Tandaan: Ang "Aprub" transaksyon ay kailangan lamang sa unang beses na mag-bond; sa mga kasunod na bond, kailangan nalang isagawa ang "Bond" transaksyon.',
         roiFourFourInfo: '* Kasama na sa ROI ng (4,4) bond ang 5-days staking reward',
 
         youWillGet: 'Makakakuha ka ng',
@@ -138,14 +141,16 @@ const Tagalog = {
         howModoFinanceWorks: 'Paano gumagana ang ModoFinance',
         treasuryRevenue: 'Treasury Revenue',
         bondsLPFees: 'Bonds & LP fees',
-        bondSales: "Ang Bond sales and LP Fees ay nakakapagtaas ng Otter's Treasury Revenue at lock in liquidity at nakakatulong na ikontrol ang suplay ng NJORD",
+        bondSales:
+          "Ang Bond sales and LP Fees ay nakakapagtaas ng Otter's Treasury Revenue at lock in liquidity at nakakatulong na ikontrol ang suplay ng NJORD",
         treasuryGrowth: 'Paglaki ng Treasury',
         otterTreasury: 'Treasury ng Otter',
         treasuryInflow:
           'Ang pagpasok ng Treasury ay ginagamit para lumaki ang Balanse ng Treasury ng otter at suportahan ang outstanding NJORD tokens at mapanatili ang staking APY',
         stakingRewards: 'Staking Rewards',
         clamToken: 'NJORD Token',
-        compounds: 'awtomatikong nacocompound ang interes sa pamamagitan ng suportadong treasury memecoin na mayroong intrinsic value',
+        compounds:
+          'awtomatikong nacocompound ang interes sa pamamagitan ng suportadong treasury memecoin na mayroong intrinsic value',
         treasuryBalance: 'Balanse ng Treasury',
       },
     },
@@ -192,10 +197,14 @@ const Tagalog = {
     nft: {
       which: 'Aling ',
       willYouGet: ' ang iyong makukuha?',
-      safehandDescription: 'Ipagkakaloob sa bawat Otter na naka-stake ng hindi bababa sa 2 linggo na mayroong higit sa 4 sNJORD sa peta ng drop.',
-      furryhandDescription: 'Ipagkakaloob sa bawat Otter na naka-stake ng hindi bababa sa 2 linggo na mayroong higit sa 40 sNJORD sa peta ng drop.',
-      stonehandDescription: 'Ipagkakaloob sa bawat pitaka na mayroong hihigit sa 56 sNJORD na naka-stake simula 11/9 hanggang sa petsa ng drop.',
-      diamondhandDescription: 'Ipagkakaloob sa pag-stake sa buong halaga ng NJORD simula IDO (11/3, hindi bababa sa 20 sNJORD) hanggang sa petsa ng drop',
+      safehandDescription:
+        'Ipagkakaloob sa bawat Otter na naka-stake ng hindi bababa sa 2 linggo na mayroong higit sa 4 sNJORD sa peta ng drop.',
+      furryhandDescription:
+        'Ipagkakaloob sa bawat Otter na naka-stake ng hindi bababa sa 2 linggo na mayroong higit sa 40 sNJORD sa peta ng drop.',
+      stonehandDescription:
+        'Ipagkakaloob sa bawat pitaka na mayroong hihigit sa 56 sNJORD na naka-stake simula 11/9 hanggang sa petsa ng drop.',
+      diamondhandDescription:
+        'Ipagkakaloob sa pag-stake sa buong halaga ng NJORD simula IDO (11/3, hindi bababa sa 20 sNJORD) hanggang sa petsa ng drop',
     },
   },
 };

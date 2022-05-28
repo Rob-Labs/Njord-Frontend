@@ -450,7 +450,13 @@ function Chart({
   }, [data]);
 
   return loading ? (
-    <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <CircularProgress />
     </Box>
   ) : (

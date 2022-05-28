@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { ReactComponent as Info } from "../../assets/icons/info.svg";
-import { SvgIcon, Paper, Typography, Box, Popper } from "@material-ui/core";
-import "./infotooltip.scss";
+import { useState } from 'react';
+import { ReactComponent as Info } from '../../assets/icons/info.svg';
+import { SvgIcon, Paper, Typography, Box, Popper } from '@material-ui/core';
+import './infotooltip.scss';
 
 /**
  * InfoTooltipMulti allows passing an ARRAY of message strings w each Array Element on a new line
@@ -16,11 +16,11 @@ function InfoTooltipMulti({ messagesArray }) {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "info-tooltip" : undefined;
+  const id = open ? 'info-tooltip' : undefined;
 
   var messagesRender = messagesArray.map((innerArray, i) => {
     return (
-      <div key={i} style={i > 0 ? { marginTop: "1rem" } : {}}>
+      <div key={i} style={i > 0 ? { marginTop: '1rem' } : {}}>
         <Typography variant="body2">{innerArray}</Typography>
       </div>
     );
@@ -32,11 +32,11 @@ function InfoTooltipMulti({ messagesArray }) {
         component={Info}
         onMouseOver={handleHover}
         onMouseOut={handleHover}
-        style={{ margin: "0 5px", fontSize: 16 }}
+        style={{ margin: '0 5px', fontSize: 16 }}
         className="info-icon"
       ></SvgIcon>
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom" className="tooltip">
-        <Paper className="info-tooltip ohm-card" style={{ padding: "1.33rem" }}>
+        <Paper className="info-tooltip ohm-card" style={{ padding: '1.33rem' }}>
           {messagesRender}
         </Paper>
       </Popper>

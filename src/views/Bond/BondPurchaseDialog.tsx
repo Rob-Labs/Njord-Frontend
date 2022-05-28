@@ -43,7 +43,17 @@ interface BondDialogProps {
   vestingTerm: number;
 }
 
-function BondPurchaseDialog({ open, handleClose, bond, balance, reserveUnit, bondQuote, bondDiscount, autoStake, vestingTerm }: BondDialogProps) {
+function BondPurchaseDialog({
+  open,
+  handleClose,
+  bond,
+  balance,
+  reserveUnit,
+  bondQuote,
+  bondDiscount,
+  autoStake,
+  vestingTerm,
+}: BondDialogProps) {
   const styles = useStyles();
   const { t } = useTranslation();
   return (

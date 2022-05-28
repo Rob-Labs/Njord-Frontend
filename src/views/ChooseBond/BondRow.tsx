@@ -67,7 +67,9 @@ export function BondDataCard({ bondKey }: IBondProps) {
               {priceUnits(bondKey)}
               {isBondLoading ? <Skeleton width="50px" /> : bond.deprecated ? '-' : trim(bondPrice, 2)}
             </p>
-            {priceDiff > 0 && <StatusChip status={Status.Success} label={`$${trim(priceDiff, 2)} ${t('bonds.bondDiscount')}`} />}
+            {priceDiff > 0 && (
+              <StatusChip status={Status.Success} label={`$${trim(priceDiff, 2)} ${t('bonds.bondDiscount')}`} />
+            )}
           </div>
         </div>
 
@@ -101,7 +103,15 @@ export function BondDataCard({ bondKey }: IBondProps) {
           </p>
         </div>
         <Link component={NavLink} to={`/bonds/${bondKey}`}>
-          <Box bgcolor="otter.otterBlue" color="otter.white" display="flex" justifyContent="center" alignItems="center" height="44px" className="bond-table-btn">
+          <Box
+            bgcolor="otter.otterBlue"
+            color="otter.white"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="44px"
+            className="bond-table-btn"
+          >
             <p>
               {bond.deprecated ? t('common.redeem') : t('common.bond')} {bond.name}
             </p>
@@ -179,7 +189,9 @@ export function BondTableRow({ bondKey }: IBondProps) {
             <span className="currency-icon">{priceUnits(bondKey)}</span>
             <span>{isBondLoading ? <Skeleton width="50px" /> : bond.deprecated ? '-' : trim(bondPrice, 2)}</span>
           </p>
-          {priceDiff > 0 && <StatusChip status={Status.Success} label={`$${trim(priceDiff, 2)} ${t('bonds.bondDiscount')}`} />}
+          {priceDiff > 0 && (
+            <StatusChip status={Status.Success} label={`$${trim(priceDiff, 2)} ${t('bonds.bondDiscount')}`} />
+          )}
         </div>
       </TableCell>
       <TableCell align="right">
@@ -209,13 +221,22 @@ export function BondTableRow({ bondKey }: IBondProps) {
         </p>
       </TableCell>
       <TableCell>
-        <p className="bond-table-actions">{myBalance ? `${trim(myBalance, 2)} ${bond.autostake ? 'sNJORD' : 'NJORD'}` : '-'}</p>
+        <p className="bond-table-actions">
+          {myBalance ? `${trim(myBalance, 2)} ${bond.autostake ? 'sNJORD' : 'NJORD'}` : '-'}
+        </p>
       </TableCell>
       <TableCell className="extra-wide">
         <div className="bond-table-actions">
           {fullyVested && (
             <Link className="bond-table-action-button" component={NavLink} to={`/bonds/${bondKey}?action=redeem`}>
-              <Box color="otter.otterBlue" display="flex" justifyContent="center" alignItems="center" height="44px" className="bond-table-btn bond-table-btn__redeem">
+              <Box
+                color="otter.otterBlue"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="44px"
+                className="bond-table-btn bond-table-btn__redeem"
+              >
                 <p>{t('common.redeem')}</p>
               </Box>
             </Link>
