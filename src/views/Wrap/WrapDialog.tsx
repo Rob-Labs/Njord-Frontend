@@ -50,7 +50,7 @@ function WrapDialog({ open, handleClose, received, stakeBalance, fjordBalance, a
               </IconButton>
             </div>
             <div className="title">
-              <p>Otter'standing!</p>
+              <p>Successfull</p>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ function WrapDialog({ open, handleClose, received, stakeBalance, fjordBalance, a
                     <div>{fjordBalance} FJORD</div>
                   </Grid>
                   <Grid item xs={6} md={6}>
-                    <div>Your Staked Balance</div>
+                    <div>Your NJORD Balance</div>
                   </Grid>
                   <Grid item xs={6} md={6} className="dtl-value">
                     <div>{stakeBalance} NJORD</div>

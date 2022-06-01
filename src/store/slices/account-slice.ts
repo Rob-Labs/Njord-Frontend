@@ -163,19 +163,19 @@ const accountSlice = createSlice({
       _.merge(state, action.payload);
     },
     wrap(state, action) {
-      const { fjord, sClam } = state.balances;
-      const newPearlBalance = ethers.utils.formatEther(ethers.utils.parseEther(fjord).add(action.payload.fjord));
-      const newsClamBalance = ethers.utils.formatUnits(ethers.utils.parseUnits(sClam, 5).sub(action.payload.sClam), 5);
+      const { fjord, njord } = state.balances;
+      const newFjordBalance = ethers.utils.formatEther(ethers.utils.parseEther(fjord).add(action.payload.fjord));
+      const newNjordBalance = ethers.utils.formatUnits(ethers.utils.parseUnits(njord, 5).sub(action.payload.njord), 5);
       _.merge(state, {
-        balances: { fjord: newPearlBalance, sClam: newsClamBalance },
+        balances: { fjord: newFjordBalance, njord: newNjordBalance },
       });
     },
     unwrap(state, action) {
-      const { fjord, sClam } = state.balances;
-      const newPearlBalance = ethers.utils.formatEther(ethers.utils.parseEther(fjord).sub(action.payload.fjord));
-      const newsClamBalance = ethers.utils.formatUnits(ethers.utils.parseUnits(sClam, 5).add(action.payload.sClam), 5);
+      const { fjord, njord } = state.balances;
+      const newFjordBalance = ethers.utils.formatEther(ethers.utils.parseEther(fjord).sub(action.payload.fjord));
+      const newNjordBalance = ethers.utils.formatUnits(ethers.utils.parseUnits(njord, 5).add(action.payload.njord), 5);
       _.merge(state, {
-        balances: { fjord: newPearlBalance, sClam: newsClamBalance },
+        balances: { fjord: newFjordBalance, njord: newNjordBalance },
       });
     },
   },
